@@ -1,0 +1,191 @@
+@import "./assets/css/fonts.css";
+@import "./assets/css/reboot.css";
+
+html {
+  margin-right: calc(-1 * (100vw - 100%));
+}
+
+body {
+  max-width: 100%;
+  color: #FFFFFF;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  background-color: #121C1E;
+  background-image: url("./assets/bg.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1600px;
+  min-height: 100vh;
+}
+
+.header {
+  min-height: 100px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+    width: 48px;
+    height: 60px;
+    margin-right: 20px;
+}
+
+.logo__img {
+  transition: filter 0.3s;
+}
+
+.logo:hover .logo__img {
+  filter: invert(57%) sepia(100%) saturate(329%) hue-rotate(
+    141deg) brightness(89%) contrast(90%);
+  transition: filter 0.3s;
+}
+
+.site-nav {
+  display: flex;
+}
+
+.site-nav__item {
+  margin-right: 20px;
+}
+
+.site-nav__link {
+  position: relative;
+  padding: 20px;
+  color: #FFFFFF;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition:  color 0.3s;
+  cursor: pointer;
+}
+
+.site-nav__item:hover .site-nav__link{
+  color: #278D9F;
+}
+
+.site-nav__link--active::after {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  height: 3px;
+  background-color: #278D9F;
+  content: "";
+}
+
+.selected {
+  width: 36px;
+  height: 60px;
+  background-image: url("./assets/img/selected.svg");
+  background-repeat: no-repeat;
+  background-position: center 2px;
+  background-size: contain;
+}
+
+.user-nav {
+  display: flex;
+  align-items: center;
+}
+
+.search {
+  margin-right: 40px;
+}
+
+.search__input {
+  display: block;
+  padding: 20px;
+  width: 380px;
+  height: 40px;
+  color: #FFFFFF;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  background-color: rgba(31, 112, 127, .3);
+  background-image: url("./assets/img/search.svg");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 330px center;
+  border: 1px solid #278D9F;
+  border-radius: 20px;
+  outline: none;
+}
+
+.search__input:focus-visible,
+.search__input:focus {
+  background-color: rgba(31, 112, 127, .7);
+}
+
+.selected {
+  position: relative;
+}
+
+.selected__count {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 30px;
+  background-color: #278D9F;
+  border-radius: 50%;
+}
+
+.app {
+  min-width: 100%;
+  min-height: calc(100vh - 170px);
+}
+
+.footer {
+  padding: 0 20px;
+  width: 100%;
+  min-height: 70px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 20px;
+}
+
+.footer__github {
+  color: #FFFFFF;
+}
+
+.footer__github:hover {
+  color: #278D9F;
+  transition: color 0.3s;
+}
+
+.footer__rss-logo {
+  margin-left: auto;
+  width: 108px;
+  height: 40px;
+  background-image: url("./assets/img/rss-logo.svg");
+  background-size: cover;
+  transition: filter 0.3s;
+}
+
+.footer__rss-logo:hover {
+  filter: invert(57%) sepia(100%) saturate(329%) hue-rotate(
+    141deg) brightness(89%) contrast(90%);
+  transition: filter 0.3s;
+}
+
