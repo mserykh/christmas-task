@@ -28,18 +28,130 @@
           <span class="selected__count"></span>
         </div>
       </div>
-    </header>
-    <main class="app">
-      <section class="filters"></section>
-      <section class="toys"></section>
-    </main>
-    <footer class="footer">
-      <p class="footer__copyright">©</p>
-      <p class="footer__year">2021</p>
+    </div>
+  </header>
+  <main class="app">
+    <div class="container">
+      <section class="filters">
+        <div class="filters__container filters__values">
+          <h3 class="filters__title">Фильтры по значению</h3>
+          <fieldset class="filters__value filters__value--shape">
+            <legend class="filters__name">Форма:</legend>
+            <ul class="filters__checkboxes-list filters__checkboxes-list--shape">
+              <li class="filters__checkboxes-item">
+                <input type="checkbox" name="shape" value="sphere" id="sphere_shape">
+                <label for="sphere_shape" class="filters__checkboxes-label">шар</label>
+              </li>
+              <li class="filters__checkboxes-item">
+                <input type="checkbox" name="shape" value="bell" id="bell_shape">
+                <label for="bell_shape" class="filters__checkboxes-label">колокольчик</label>
+              </li>
+              <li class="filters__checkboxes-item">
+                <input type="checkbox" name="shape" value="cone" id="cone_shape">
+                <label for="cone_shape" class="filters__checkboxes-label">шишка</label>
+              </li>
+              <li class="filters__checkboxes-item">
+                <input type="checkbox" name="shape" value="snowflake" id="snowflake_shape">
+                <label for="snowflake_shape" class="filters__checkboxes-label">снежинка</label>
+              </li>
+              <li class="filters__checkboxes-item">
+                <input type="checkbox" name="shape" value="figurine" id="figurine_shape">
+                <label for="figurine_shape" class="filters__checkboxes-label">фигурка</label>
+              </li>
+            </ul>
+          </fieldset>
+          <fieldset class="filters__value filters__value--color">
+            <legend class="filters__name">Цвет:</legend>
+            <ul class="filters__checkboxes-list filters__checkboxes-list--color">
+              <li class="filters__checkboxes-item">
+                <input type="checkbox" name="color" value="white" id="white_color">
+                <label for="white_color" class="filters__checkboxes-label">белый</label>
+              </li>
+              <li class="filters__checkboxes-item">
+                <input type="checkbox" name="color" value="yellow" id="yellow_color">
+                <label for="yellow_color" class="filters__checkboxes-label">жёлтый</label>
+              </li>
+              <li class="filters__checkboxes-item">
+                <input type="checkbox" name="color" value="red" id="red_color">
+                <label for="red_color" class="filters__checkboxes-label">красный</label>
+              </li>
+              <li class="filters__checkboxes-item">
+                <input type="checkbox" name="color" value="blue" id="blue_color">
+                <label for="blue_color" class="filters__checkboxes-label">синий</label>
+              </li>
+              <li class="filters__checkboxes-item">
+                <input type="checkbox" name="color" value="green" id="green_color">
+                <label for="green_color" class="filters__checkboxes-label">зелёный</label>
+              </li>
+            </ul>
+          </fieldset>
+          <fieldset class="filters__value filters__value--size">
+            <legend class="filters__name">Размер:</legend>
+            <ul class="filters__checkboxes-list filters__checkboxes-list--size">
+              <li class="filters__checkboxes-item">
+                <input type="checkbox" name="size" value="big" id="big_size">
+                <label for="big_size" class="filters__checkboxes-label">большой</label>
+              </li>
+              <li class="filters__checkboxes-item">
+                <input type="checkbox" name="shasizepe" value="medium" id="medium_size">
+                <label for="medium_size" class="filters__checkboxes-label">средний</label>
+              </li>
+              <li class="filters__checkboxes-item">
+                <input type="checkbox" name="size" value="small" id="small_size">
+                <label for="small_sizer" class="filters__checkboxes-label">малый</label>
+              </li>
+            </ul>
+          </fieldset>
+          <fieldset class="filters__value filters__value--favorite">
+            <input type="checkbox" name="favorite" value="favorite" id="favorite">
+            <label class="filters__name" for="favorite">Только любимые:</label>
+          </fieldset>
+        </div>
+        <div class="filters__container filters__range">
+          <h3 class="filters__title">Фильтры по диапазону</h3>
+          <fieldset class="filters__value filters__value--shape">
+            <input type="text" id="sampleSlider" />
+            <input type="text" id="sampleSlider" />
+          </fieldset>
+        </div>
+        <div class="filters__container filters__sorting">
+          <h3 class="filters__title">Сортировка</h3>
+          <select name="sorting" id="sorting" class="filters__select">
+            <option value="name-desc_sorting" selected>По названию от «А» до «Я»</option>
+            <option value="name-asc_sorting" false>По названию от «Я» до «А»</option>
+            <option value="qty-desc_sorting" false>По количеству по возрастанию</option>
+            <option value="qrt-asc_sorting" false>По количеству по убыванию</option>
+          </select>
+          <button class="filters__reset">Сброс фильтров</button>
+        </div>
+      </section>
+      <section class="results">
+        <ul class="results__list">
+          <li class="results__item toy active">
+            <h2 class="toy__title">Сосулька красная</h2>
+            <img class="toy__image" src="./assets/toys/4.webp" alt="Сосулька красная">
+            <div class="toy__description">
+              <p class="toy__qty">Количество: <span>2</span></p>
+              <p class="toy__year">Год покупки: <span>1980</span></p>
+              <p class="toy__shape">Форма: <span>шар</span></p>
+              <p class="toy__color">Цвет: <span>красный</span></p>
+              <p class="toy__size">Размер: <span>большой</span></p>
+              <p class="toy__favorite">Любимая: <span>нет</span></p>
+            </div>
+            <div class="toys__ribbon">
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container container--footer">
+      <p class="footer__copyright">© 2021</p>
       <a class="footer__github" href="https://github.com/mserykh">mserykh</a>
       <a class="footer__rss-logo" href="https://rs.school/js/" target="_blank"></a>
-    </footer>
-    <div id="data"></div>
-  </div>
+    </div>
+  </footer>
+  <div id="data"></div>
 </body>
 </html>
