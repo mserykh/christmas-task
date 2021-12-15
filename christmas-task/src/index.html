@@ -5,9 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Christmas task</title>
-  <link rel="stylesheet" href="global.css">
 </head>
-<body>
+<body class="app">
   <header class="header">
     <div class="container--header container">
       <nav class="header__nav">
@@ -25,12 +24,12 @@
           <input class="search__input" type="search">
         </div>
         <div class="selected">
-          <span class="selected__count"></span>
+          <span class="selected__count">0</span>
         </div>
       </div>
     </div>
   </header>
-  <main class="app">
+  <main class="main">
     <div class="container">
       <section class="filters">
         <div class="filters__container filters__values">
@@ -93,12 +92,12 @@
                 <label for="big_size" class="filters__checkboxes-label">большой</label>
               </li>
               <li class="filters__checkboxes-item">
-                <input type="checkbox" name="shasizepe" value="medium" id="medium_size">
+                <input type="checkbox" name="size" value="medium" id="medium_size">
                 <label for="medium_size" class="filters__checkboxes-label">средний</label>
               </li>
               <li class="filters__checkboxes-item">
                 <input type="checkbox" name="size" value="small" id="small_size">
-                <label for="small_sizer" class="filters__checkboxes-label">малый</label>
+                <label for="small_size" class="filters__checkboxes-label">малый</label>
               </li>
             </ul>
           </fieldset>
@@ -117,30 +116,17 @@
         <div class="filters__container filters__sorting">
           <h3 class="filters__title">Сортировка</h3>
           <select name="sorting" id="sorting" class="filters__select">
-            <option value="name-desc_sorting" selected>По названию от «А» до «Я»</option>
-            <option value="name-asc_sorting" false>По названию от «Я» до «А»</option>
-            <option value="qty-desc_sorting" false>По количеству по возрастанию</option>
-            <option value="qrt-asc_sorting" false>По количеству по убыванию</option>
+            <option value="default_sorting" selected>По умолчанию</option>
+            <option value="name-asc_sorting" false>По названию от «А» до «Я»</option>
+            <option value="name-desc_sorting" false>По названию от «Я» до «А»</option>
+            <option value="year-asc_sorting" false>По году по возрастанию</option>
+            <option value="year-desc_sorting" false>По году по убыванию</option>
           </select>
           <button class="filters__reset">Сброс фильтров</button>
         </div>
       </section>
       <section class="results">
         <ul class="results__list">
-          <li class="results__item toy active">
-            <h2 class="toy__title">Сосулька красная</h2>
-            <img class="toy__image" src="./assets/toys/4.webp" alt="Сосулька красная">
-            <div class="toy__description">
-              <p class="toy__qty">Количество: <span>2</span></p>
-              <p class="toy__year">Год покупки: <span>1980</span></p>
-              <p class="toy__shape">Форма: <span>шар</span></p>
-              <p class="toy__color">Цвет: <span>красный</span></p>
-              <p class="toy__size">Размер: <span>большой</span></p>
-              <p class="toy__favorite">Любимая: <span>нет</span></p>
-            </div>
-            <div class="toys__ribbon">
-            </div>
-          </li>
         </ul>
       </section>
     </div>
