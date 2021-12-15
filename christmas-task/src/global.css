@@ -17,6 +17,14 @@ body {
   background-color: #121C1E;
 }
 
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
 .container {
   margin: 0 auto;
   max-width: 1600px;
@@ -170,6 +178,148 @@ body {
   backdrop-filter: blur(6px);
 }
 
+.filters__value {
+  display: flex;
+  align-items: center;
+}
+
+.filters__checkboxes-list {
+  display: flex;
+}
+
+.filters__checkbox {
+  appearance: none;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.filters__checkbox--shape {
+  margin: 10px 7px;
+  width: 40px;
+  height: 40px;
+}
+
+.filters__checkbox--shape:checked,
+.filters__checkbox--size:checked {
+  filter: invert(9%) sepia(63%) saturate(461%) hue-rotate(322deg) brightness(83%) contrast(88%);
+}
+
+.filters__checkbox--sphere {
+  background-image: url("./assets/img/ball.svg");
+}
+
+.filters__checkbox--bell {
+  background-image: url("./assets/img/bell.svg");
+}
+
+.filters__checkbox--cone {
+  background-image: url("./assets/img/cone.svg");
+}
+
+.filters__checkbox--snowflake {
+  background-image: url("./assets/img/snowflake.svg");
+}
+
+.filters__checkbox--figurine {
+  background-image: url("./assets/img/toy.svg");
+}
+
+.filters__checkbox--color {
+  position: relative;
+  margin: 10px 15px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #278D9F;
+  border-radius: 5px;
+  outline: 0;
+}
+
+.filters__checkbox--color:checked::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 9px;
+  width: 10px;
+  height: 17px;
+  border: solid #fff;
+  border-width: 0 4px 4px 0;
+  transform: rotate(45deg);
+}
+
+.filters__checkbox--white:checked::after {
+  border-color: #CAB67C;
+}
+
+.filters__checkbox--white {
+  background-color: #FFFFFF;
+}
+
+.filters__checkbox--yellow {
+  background-color: #FDD700;
+}
+
+.filters__checkbox--red {
+  background-color: #FD0000;
+}
+
+.filters__checkbox--blue {
+  background-color: #2199EB;
+}
+
+.filters__checkbox--green {
+  background-color: #08AA05;
+}
+
+.filters__checkbox--size {
+  margin: 5px;
+  width: 50px;
+  height: 50px;
+  background-image: url("./assets/img/ball.svg");
+}
+
+.filters__checkbox--big {
+  margin-right: 13px;
+}
+
+.filters__checkbox--medium {
+  background-size: 40px 40px;
+}
+
+.filters__checkbox--small {
+  background-size: 30px 30px;
+}
+
+.filters__checkbox--favorite {
+  position: relative;
+  margin-left: 20px;
+  width: 30px;
+  height: 30px;
+  order: 2;
+  backdrop-filter: blur(6px);
+  border: 1px solid #278D9F;
+  border-radius: 5px;
+}
+
+.filters__checkbox--favorite:checked {
+  background-color: #278D9F;
+  border-color: #278D9F;
+}
+
+.filters__checkbox--favorite:checked::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 9px;
+  width: 10px;
+  height: 17px;
+  border: solid #fff;
+  border-width: 0 4px 4px 0;
+  transform: rotate(45deg);
+}
+
 .results__list {
   margin: 0 auto;
   display: flex;
@@ -210,6 +360,7 @@ body {
   margin: 0;
   margin-bottom: 10px;
   font-size: 18px;
+  letter-spacing: -0.15px;
 }
 
 .toy__image {
