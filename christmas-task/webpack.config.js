@@ -1,9 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 require('webpack');
 
-module.exports = {
+const isProduction = process.env.NODE_ENV == 'production';
+const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : 'style-loader';
+
+const config = {
   entry: './src/index.ts',
   mode: 'development',
   devServer: {
@@ -36,16 +40,7 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: [
-        'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-              modules: true,
-            },
-          }
-        ],
+        use: [stylesHandler,'css-loader'],
       },
       {
         test: /\.json/, use: 'json-loader' }
@@ -56,11 +51,25 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         { from: './public', to: './public' },
-        { from: './src/assets/toys', to: './assets/toys' }
+        { from: './src/assets/toys', to: './assets/toys' },
+        { from: './src/assets/img', to: './assets/img' }
       ]
     })
   ],
   resolve: {
     extensions: [ ".tsx", ".ts", ".js", ".json" ]
   },
+};
+
+module.exports = () => {
+  if (isProduction) {
+      config.mode = 'production';
+      
+      config.plugins.push(new MiniCssExtractPlugin());
+      
+      
+  } else {
+      config.mode = 'development';
+  }
+  return config;
 };
