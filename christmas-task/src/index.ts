@@ -2,6 +2,7 @@ import "./global.css";
 import data from "./assets/data/data";
 import { IToy } from "./app/utils/IToy";
 import "./app/Sorting";
+import "./app/SliderRange";
 
 const application = document.querySelector(".app") as HTMLElement;
 export const resultList = document.querySelector(".results__list") as HTMLElement;
