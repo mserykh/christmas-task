@@ -418,12 +418,10 @@ body {
 }
 
 .results__list {
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  row-gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 304px));
   column-gap: 20px;
+  row-gap: 20px;
 }
 
 .results__item {
@@ -431,9 +429,6 @@ body {
   grid-template-rows: repeat(2, auto);
   grid-template-columns: repeat(2, auto);
   padding: 20px 10px 10px 20px;
-  max-width: 304px;
-  width: 20%;
-  min-width: 290px;
   height: 280px;
   border-radius: 10px;
   border: 1px solid #278D9F;
