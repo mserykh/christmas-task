@@ -1,11 +1,14 @@
 import { render } from "./Render";
 import { toyTemplate } from "./ToyCard";
 import { selectedList } from "../state/State";
-import { showSelectedCount } from "./SelectedToys";
+import { selectedToys, showSelectedCount } from "./SelectedToys";
+import { setToLocalStorage } from "../utils/LocalStorage";
 import { noToysMessage } from "./NoToysMessage";
+import { noSlotsMessage } from "./NoSlotsMessages";
 
 export const renderToys = (toys) => {
   const toysList = document.querySelector(".results__list") as HTMLElement;
+
   toysList.innerHTML = "";
     if (toys.length === 0) {
       noToysMessage(); 
@@ -38,7 +41,7 @@ const addToSelected = (id) => {
   }
   else {
     if (selectedList.length >= 3) {
-      console.log("Извините, все слоты заполнены");
+      noSlotsMessage();
       return;
     }
     selectedList.push(id);
