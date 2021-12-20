@@ -134,6 +134,11 @@ body {
   outline: none;
 }
 
+.search__input::placeholder {
+  color: #FFFFFF;
+  opacity: 0.75;
+}
+
 .search__input:focus-visible,
 .search__input:focus {
   background-color: rgba(31, 112, 127, .7);
