@@ -27,4 +27,4 @@ const getFavoriteText = (value) => {
   else {
     return FavoriteText.No;
   }
-}
+};

@@ -23,7 +23,7 @@ function addEvents(toy) {
       toyCard.classList.remove("is-selected");
     }
   });
-}
+};
 
 const addToSelected = (id) => {
   if (selectedList.includes(id)) {
@@ -38,4 +38,4 @@ const addToSelected = (id) => {
     selectedList.push(id);
   }
   showSelectedCount();
-}
+};
