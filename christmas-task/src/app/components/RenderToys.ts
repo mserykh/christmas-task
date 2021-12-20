@@ -1,5 +1,5 @@
 import { render } from "./Render";
-import { toyTemplate } from "./Card";
+import { toyTemplate } from "./ToyCard";
 import { selectedList } from "../state/State";
 import { showSelectedCount } from "./SelectedToys";
 import { noToysMessage } from "./NoToysMessage";
