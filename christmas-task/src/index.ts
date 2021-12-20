@@ -11,6 +11,7 @@ import { sorting } from "./app/components/Sorting";
 import { reset } from "./app/components/Reset";
 import { renderToys } from "./app/components/RenderToys";
 import { toysList } from "./app/components/ToysList";
+import { selectedToysModal } from "./app/components/SelectedToys";
 
 const site = document.querySelector(".app");
 render(site, staticPage());
@@ -25,3 +26,4 @@ sorting();
 reset();
 toysList();
 renderToys(data);
+selectedToysModal();

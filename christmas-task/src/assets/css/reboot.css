@@ -34,3 +34,8 @@ fieldset {
   padding: 0;
   border: none;
 }
+
+button {
+  border: 0;
+  background: none;
+}
