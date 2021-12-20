@@ -1,5 +1,6 @@
 import { render } from "./Render"
 import { sliderRanges } from "../utils/SliderRange";
+import { stateRangeFilters } from "../state/State";
 
 export const ranges = () => {
   const rangesContainer = document.querySelector(".filters__ranges");
@@ -9,8 +10,8 @@ export const ranges = () => {
     <div class="range-slider range-slider--qty">
       <div class="slider">
         <div class="output left">1</div>
-        <input class="filters__range filters__range--left" type="range" id="input-left" min="1" max="12" value="1" step="1">
-        <input class="filters__range filters__range--right" type="range" id="input-right" min="1" max="12" value="12" step="1">
+        <input class="filters__range filters__range--left" type="range" id="qtyMin" min="1" max="12" value="1" step="1">
+        <input class="filters__range filters__range--right" type="range" id="qtyMax" min="1" max="12" value="12" step="1">
         <div class="slider__inner">
           <div class="track"></div>
           <div class="range"></div>
@@ -28,8 +29,8 @@ export const ranges = () => {
     <div class="range-slider range-slider--year">
       <div class="slider">
         <div class="output left">1940</div>
-        <input class="filters__range filters__range--left" type="range" id="input-left" min="1940" max="2020" value="1940" step="1">
-        <input class="filters__range filters__range--right" type="range" id="input-right" min="1940" max="2020" value="2020" step="1">
+        <input class="filters__range filters__range--left" type="range" id="yearMin" min="1940" max="2020" value="1940" step="10">
+        <input class="filters__range filters__range--right" type="range" id="yearMax" min="1940" max="2020" value="2020" step="10">
         <div class="slider__inner">
           <div class="track"></div>
           <div class="range"></div>
@@ -43,5 +44,7 @@ export const ranges = () => {
   </fieldset>`;
 
   render(rangesContainer, rangesComponent());
-  sliderRanges();
+  
+  const rangeSliders = document.querySelectorAll(".range-slider") as NodeListOf<HTMLElement>;
+  rangeSliders.forEach(rangeSlider => sliderRanges(rangeSlider));
 };

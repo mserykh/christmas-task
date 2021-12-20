@@ -44,3 +44,10 @@ export const attributesFilter = (toys, filters) => {
   return result;
 };
 
+export const rangesFilters = (toys, filters) => {
+  const result = toys
+  .filter(toy => ((+toy.count >= +filters.qtyMin) && (+toy.count <= +filters.qtyMax)))
+  .filter(toy => ((+toy.year >= +filters.yearMin) && (+toy.year <= +filters.yearMax)));
+  return result;
+};
+
