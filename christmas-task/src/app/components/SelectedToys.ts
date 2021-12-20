@@ -1,5 +1,5 @@
 import { render } from "./Render";
-import { selectedList } from "../state/State";
+import { stateSelectedList } from "../state/State";
 
 export const selectedToys = () => {
   const selectedToysContainer = document.querySelector(".selected");
@@ -9,7 +9,7 @@ export const selectedToys = () => {
 
 export const showSelectedCount = () => {
   const selectedCount = document.querySelector(".selected__count") as HTMLElement;
-  selectedCount.innerHTML = `${selectedList.length}`;
+  selectedCount.innerHTML = `${stateSelectedList.length}`;
 }
 
 export const selectedToysModal = () => {

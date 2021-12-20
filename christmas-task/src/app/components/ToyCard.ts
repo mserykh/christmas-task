@@ -1,4 +1,4 @@
-import { selectedFilters, selectedList } from "../state/State";
+import { stateAttributeFilters, stateSelectedList } from "../state/State";
 
 enum FavoriteText {
   Yes = "Да",

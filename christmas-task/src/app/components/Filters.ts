@@ -1,4 +1,4 @@
-import { selectedFilters } from "../state/State";
+import { stateAttributeFilters } from "../state/State";
 
 type Filters = { [key: string]: string };
 
@@ -35,7 +35,6 @@ export const searchFilter = (toys, searchValue) => {
 
 
 export const attributesFilter = (toys, filters) => {
-  //check selectedList, check sort
   const result = toys
   .filter(toy => (filters.shape.length === 0 ? Boolean(toy.shape) : filters.shape.includes(toy.shape)))
   .filter(toy => (filters.color.length === 0 ? Boolean(toy.color) : filters.color.includes(toy.color)))

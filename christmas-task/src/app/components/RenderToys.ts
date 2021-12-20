@@ -1,6 +1,6 @@
 import { render } from "./Render";
 import { toyTemplate } from "./ToyCard";
-import { selectedList } from "../state/State";
+import { stateSelectedList } from "../state/State";
 import { selectedToys, showSelectedCount } from "./SelectedToys";
 import { setToLocalStorage } from "../utils/LocalStorage";
 import { noToysMessage } from "./NoToysMessage";
@@ -25,7 +25,7 @@ const addEvents = (toy) => {
   const toyCard = document.getElementById(`toy_${toy.num}`) as HTMLElement;
   toyCard.addEventListener("click", () => {
     addToSelected(toy.num);
-    if (selectedList.includes(toy.num)) {
+    if (stateSelectedList.includes(toy.num)) {
       toyCard.classList.add("is-selected");
     }
     else {
@@ -35,22 +35,22 @@ const addEvents = (toy) => {
 };
 
 const addToSelected = (id) => {
-  if (selectedList.includes(id)) {
-    const index = selectedList.indexOf(id);
-    selectedList.splice(index, 1);
+  if (stateSelectedList.includes(id)) {
+    const index = stateSelectedList.indexOf(id);
+    stateSelectedList.splice(index, 1);
   }
   else {
-    if (selectedList.length >= 3) {
+    if (stateSelectedList.length >= 3) {
       noSlotsMessage();
       return;
     }
-    selectedList.push(id);
+    stateSelectedList.push(id);
   }
   showSelectedCount();
 };
 
 const isSelected = (toy) => {
-  if (selectedList.includes(toy.num)) {
+  if (stateSelectedList.includes(toy.num)) {
     const toyCard = document.getElementById(`toy_${toy.num}`) as HTMLElement;
     toyCard.classList.add("is-selected");
   };

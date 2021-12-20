@@ -1,6 +1,6 @@
 import { render } from "./Render";
 import data from "../../assets/data/data";
-import { selectedFilters } from "../state/State";
+import { stateAttributeFilters } from "../state/State";
 import { attributesFilter } from "./Filters";
 import { renderToys } from "./RenderToys";
 
@@ -110,7 +110,7 @@ export const attributesFiltersComponent = () => {
 const addEventListeners = () => {
   const checkboxes = document.querySelectorAll(".filters__checkbox") as NodeListOf<HTMLInputElement>;
   checkboxes.forEach(checkbox => {
-    checkbox.addEventListener('change', (e) => { onFilterChange(e) } );
+    checkbox.addEventListener('change', onFilterChange );
   });
 };
 
@@ -118,24 +118,24 @@ const onFilterChange = (e) => {
 
   const target = e.target as HTMLInputElement;
 
-  if (target.name === "favorite" && selectedFilters[target.name] === false) {
-    selectedFilters[target.name] = true;
-    renderToys(attributesFilter(data, selectedFilters));
+  if (target.name === "favorite" && stateAttributeFilters[target.name] === false) {
+    stateAttributeFilters[target.name] = true;
+    renderToys(attributesFilter(data, stateAttributeFilters));
   }
 
-  else if (target.name === "favorite" && selectedFilters[target.name] === true) {
-    selectedFilters[target.name] = false;
-    renderToys(attributesFilter(data, selectedFilters));
+  else if (target.name === "favorite" && stateAttributeFilters[target.name] === true) {
+    stateAttributeFilters[target.name] = false;
+    renderToys(attributesFilter(data, stateAttributeFilters));
   }
 
-  else if (target.checked && !selectedFilters[target.name].includes(target.value)) {
-    selectedFilters[target.name].push(FILTERS[target.value]);
-    renderToys(attributesFilter(data, selectedFilters));
+  else if (target.checked && !stateAttributeFilters[target.name].includes(target.value)) {
+    stateAttributeFilters[target.name].push(FILTERS[target.value]);
+    renderToys(attributesFilter(data, stateAttributeFilters));
   }
 
-  else if (selectedFilters[target.name].includes(FILTERS[target.value])) {
-    const index = selectedFilters[target.name].indexOf(FILTERS[target.value]);
-    selectedFilters[target.name].splice(index, 1);
-    renderToys(attributesFilter(data, selectedFilters));
+  else if (stateAttributeFilters[target.name].includes(FILTERS[target.value])) {
+    const index = stateAttributeFilters[target.name].indexOf(FILTERS[target.value]);
+    stateAttributeFilters[target.name].splice(index, 1);
+    renderToys(attributesFilter(data, stateAttributeFilters));
   }
 }
