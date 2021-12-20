@@ -1,11 +1,12 @@
 import data from "../../assets/data/data";
 import { render } from "./Render";
-import { stateAttributeFilters } from "../state/State";
-import { stateRangeFilters } from "../state/State";
+import { stateAttributeFilters, stateRangeFilters, stateSortingOption } from "../state/State";
 import { attributesFilter } from "./Filters";
 import { rangesFilters } from "./Filters";
 import { renderToys } from "./RenderToys";
 import { sliderRanges } from "../utils/SliderRange";
+import { sortToys } from "./Sorting";
+
 
 export const reset = () => {
   const resetBtnContainer = document.querySelector(".filters__sorting");
@@ -34,15 +35,14 @@ const onReset = (e) => {
   checkboxes.forEach(checkbox => checkbox.checked = false);
   const sliders = document.querySelectorAll(".range-slider") as NodeListOf<HTMLInputElement>;
   const inputs = document.querySelectorAll(".filters__range") as NodeListOf<HTMLInputElement>;
+  
   inputs.forEach(input => {
     if (input.id === "qtyMin") { input.value = stateRangeFilters.qtyMin as string };
     if (input.id === "qtyMax") { input.value = stateRangeFilters.qtyMax as string };
     if (input.id === "yearMin") { input.value = stateRangeFilters.yearMin as string };
     if (input.id === "yearMax") { input.value = stateRangeFilters.yearMax as string };
   });
-  
   sliders.forEach(slider => sliderRanges(slider));
-
-
-  renderToys(attributesFilter(data, stateAttributeFilters));
-}
+  renderToys(sortToys(rangesFilters(attributesFilter(data, stateAttributeFilters), stateRangeFilters), stateSortingOption.option));
+  //renderToys(rangesFilters(attributesFilter(data, stateAttributeFilters), stateRangeFilters));
+};
