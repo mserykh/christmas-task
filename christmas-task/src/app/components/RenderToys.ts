@@ -2,17 +2,23 @@ import { render } from "./Render";
 import { toyTemplate } from "./Card";
 import { selectedList } from "../state/State";
 import { showSelectedCount } from "./SelectedToys";
+import { noToysMessage } from "./NoToysMessage";
 
 export const renderToys = (toys) => {
   const toysList = document.querySelector(".results__list") as HTMLElement;
   toysList.innerHTML = "";
+    if (toys.length === 0) {
+      noToysMessage(); 
+    }
+
   toys.forEach(toy => {
     render(toysList, toyTemplate(toy));
+    //check if it is in SelectedList already
     addEvents(toy);
   });
 };
 
-function addEvents(toy) {
+const addEvents = (toy) => {
   const toyCard = document.getElementById(`toy_${toy.num}`) as HTMLElement;
   toyCard.addEventListener("click", () => {
     addToSelected(toy.num);
