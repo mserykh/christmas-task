@@ -16,7 +16,7 @@ export const renderToys = (toys) => {
 
   toys.forEach(toy => {
     render(toysList, toyTemplate(toy));
-    //check if it is in SelectedList already
+    isSelected(toy);
     addEvents(toy);
   });
 };
@@ -48,3 +48,10 @@ const addToSelected = (id) => {
   }
   showSelectedCount();
 };
+
+const isSelected = (toy) => {
+  if (selectedList.includes(toy.num)) {
+    const toyCard = document.getElementById(`toy_${toy.num}`) as HTMLElement;
+    toyCard.classList.add("is-selected");
+  };
+}
