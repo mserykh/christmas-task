@@ -1,6 +1,11 @@
 import data from "../../assets/data/data";
 import { render } from "./Render";
 import { renderToys } from "./RenderToys";
+import { stateSortingOption } from "../state/State";
+import { rangesFilters } from "./Filters";
+import { attributesFilter } from "./Filters";
+import { stateRangeFilters } from "../state/State";
+import { stateAttributeFilters } from "../state/State";
 
 export const sorting = () => {
   const sortingContainer = document.querySelector(".filters__sorting");
@@ -26,27 +31,32 @@ const onSortValueChange = (e: Event) => {
   const target = e.target as HTMLSelectElement;
 
   if (target.value === "default_sorting") {
-    renderToys(data);
+    stateSortingOption.option = target.value;
+    renderToys(rangesFilters(attributesFilter(data, stateAttributeFilters), stateRangeFilters));
   }
 
   if (target.value === "name-asc_sorting") {
+    stateSortingOption.option = target.value;
     const data = sortByNameAsc();
-    renderToys(data);
+    renderToys(rangesFilters(attributesFilter(data, stateAttributeFilters), stateRangeFilters));
   }
 
   if (target.value === "name-desc_sorting") {
+    stateSortingOption.option = target.value;
     const data = sortByNameDesc();
-    renderToys(data);
+    renderToys(rangesFilters(attributesFilter(data, stateAttributeFilters), stateRangeFilters));
   }
 
   if (target.value === "year-asc_sorting") {
+    stateSortingOption.option = target.value;
     const data = sortByYearAsc();
-    renderToys(data);
+    renderToys(rangesFilters(attributesFilter(data, stateAttributeFilters), stateRangeFilters));
   }
 
   if (target.value === "year-desc_sorting") {
+    stateSortingOption.option = target.value;
     const data = sortByYearDesc();
-    renderToys(data);
+    renderToys(rangesFilters(attributesFilter(data, stateAttributeFilters), stateRangeFilters));
   }
 };
 
