@@ -398,6 +398,10 @@ body {
   pointer-events: none;
 }
 
+.filters__range--left::-webkit-slider-thumb{
+  margin-left: -10px;
+}
+
 .filters__range::-webkit-slider-thumb {
   width: 22px;
   height: 22px;
