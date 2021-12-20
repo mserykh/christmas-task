@@ -8,11 +8,15 @@ interface IAttributesFilter {
 }
 
 interface IRangeFilters {
-  qtyMin?: string,
-  qtyMax?: string,
-  yearMin?: string,
-  yearMax?: string
+  qtyMin: string,
+  qtyMax: string,
+  yearMin: string,
+  yearMax: string
 } 
+
+type StateSorting = {
+  option: string
+};
 
 type SelectedList = string[];
 
@@ -30,6 +34,8 @@ export const stateRangeFilters: IRangeFilters = {
   yearMax: "2020"
 };
 
-export const stateSortingOption = "";
+export const stateSortingOption: StateSorting = {
+  option: "default_sorting"
+};
 
 export const stateSelectedList: SelectedList = [];
