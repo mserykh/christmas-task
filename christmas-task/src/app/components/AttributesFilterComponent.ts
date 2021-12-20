@@ -1,8 +1,9 @@
 import { render } from "./Render";
 import data from "../../assets/data/data";
-import { stateAttributeFilters } from "../state/State";
+import { stateAttributeFilters, stateSortingOption } from "../state/State";
 import { attributesFilter } from "./Filters";
 import { renderToys } from "./RenderToys";
+import { sortToys } from "./Sorting";
 
 type Filters = { [key: string]: string };
 
@@ -120,22 +121,22 @@ const onFilterChange = (e) => {
 
   if (target.name === "favorite" && stateAttributeFilters[target.name] === false) {
     stateAttributeFilters[target.name] = true;
-    renderToys(attributesFilter(data, stateAttributeFilters));
+    renderToys(sortToys((attributesFilter(data, stateAttributeFilters)), stateSortingOption.option));
   }
 
   else if (target.name === "favorite" && stateAttributeFilters[target.name] === true) {
     stateAttributeFilters[target.name] = false;
-    renderToys(attributesFilter(data, stateAttributeFilters));
+    renderToys(sortToys((attributesFilter(data, stateAttributeFilters)), stateSortingOption.option));
   }
 
   else if (target.checked && !stateAttributeFilters[target.name].includes(target.value)) {
     stateAttributeFilters[target.name].push(FILTERS[target.value]);
-    renderToys(attributesFilter(data, stateAttributeFilters));
+    renderToys(sortToys((attributesFilter(data, stateAttributeFilters)), stateSortingOption.option));
   }
 
   else if (stateAttributeFilters[target.name].includes(FILTERS[target.value])) {
     const index = stateAttributeFilters[target.name].indexOf(FILTERS[target.value]);
     stateAttributeFilters[target.name].splice(index, 1);
-    renderToys(attributesFilter(data, stateAttributeFilters));
+    renderToys(sortToys((attributesFilter(data, stateAttributeFilters)), stateSortingOption.option));
   }
-}
+};

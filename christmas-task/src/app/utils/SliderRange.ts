@@ -1,9 +1,9 @@
 import data from "../../assets/data/data";
-import { stateRangeFilters } from "../state/State";
 import { rangesFilters } from "../components/Filters";
 import { renderToys } from "../components/RenderToys";
 import { attributesFilter } from "../components/Filters";
-import { stateAttributeFilters } from "../state/State";
+import { stateAttributeFilters, stateRangeFilters, stateSortingOption } from "../state/State";
+import { sortToys } from "../components/Sorting";
 
 export const sliderRanges = (rangeSlider) => {
   const inputLeft = rangeSlider.querySelector(".filters__range--left") as HTMLInputElement;
@@ -54,5 +54,6 @@ export const sliderRanges = (rangeSlider) => {
 };
 
 const onRangeChange = () => {
-  renderToys(rangesFilters(attributesFilter(data, stateAttributeFilters), stateRangeFilters));
+  renderToys(sortToys(rangesFilters(attributesFilter(data, stateAttributeFilters), stateRangeFilters), stateSortingOption.option));
 };
+
