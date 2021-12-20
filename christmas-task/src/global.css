@@ -320,6 +320,7 @@ body {
   transform: rotate(45deg);
 }
 
+.range-slider--qty,
 .range-slider--year {
   position: relative;
 }
