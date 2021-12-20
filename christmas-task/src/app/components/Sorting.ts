@@ -90,4 +90,3 @@ export const sortToys = (toys, sortingOption) => {
       return sortByYearDesc(toys);
   }
 };
-

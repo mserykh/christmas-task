@@ -1,4 +1,4 @@
-import { render } from "./Render"
+import { render } from "./Render";
 
 export const controls = () => {
   const appContainer = document.querySelector(".container--main");

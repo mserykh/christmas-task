@@ -1,5 +1,3 @@
-import { stateAttributeFilters } from "../state/State";
-
 type Filters = { [key: string]: string };
 
 interface IFilterTypesList {
@@ -7,22 +5,6 @@ interface IFilterTypesList {
   color: string[];
   size: string[];
   favorite: Boolean;
-};
-
-const FILTERS = {
-  sphere: "шар",
-  bell: "колокольчик",
-  cone: "шишка",
-  figurine: "фигурка",
-  snowflake: "снежинка",
-  white: "белый",
-  yellow: "жёлтый",
-  red: "красный",
-  blue: "синий",
-  green: "зелёный",
-  big: "большой",
-  medium: "средний",
-  small: "малый",
 };
 
 export const searchFilter = (toys, searchValue) => {
@@ -49,4 +31,3 @@ export const rangesFilters = (toys, filters) => {
   .filter(toy => ((+toy.year >= +filters.yearMin) && (+toy.year <= +filters.yearMax)));
   return result;
 };
-

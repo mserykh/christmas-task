@@ -1,6 +1,5 @@
 import { render } from "./Render"
 import { sliderRanges } from "../utils/SliderRange";
-import { stateRangeFilters } from "../state/State";
 
 export const ranges = () => {
   const rangesContainer = document.querySelector(".filters__ranges");

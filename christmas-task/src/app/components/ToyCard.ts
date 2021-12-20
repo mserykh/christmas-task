@@ -1,5 +1,3 @@
-import { stateAttributeFilters, stateSelectedList } from "../state/State";
-
 enum FavoriteText {
   Yes = "Да",
   No = "Нет"

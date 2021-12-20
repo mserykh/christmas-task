@@ -5,12 +5,12 @@ export const selectedToys = () => {
   const selectedToysContainer = document.querySelector(".selected");
   const selectedToysComponent = () => `<span class="selected__count"></span>`;
   render(selectedToysContainer, selectedToysComponent());
-}
+};
 
 export const showSelectedCount = () => {
   const selectedCount = document.querySelector(".selected__count") as HTMLElement;
   selectedCount.innerHTML = `${stateSelectedList.length}`;
-}
+};
 
 export const selectedToysModal = () => {
   const renderSelectedToysModal = () => {

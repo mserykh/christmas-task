@@ -1,8 +1,7 @@
 import { render } from "./Render";
 import { toyTemplate } from "./ToyCard";
 import { stateSelectedList } from "../state/State";
-import { selectedToys, showSelectedCount } from "./SelectedToys";
-import { setToLocalStorage } from "../utils/LocalStorage";
+import { showSelectedCount } from "./SelectedToys";
 import { noToysMessage } from "./NoToysMessage";
 import { noSlotsMessage } from "./NoSlotsMessages";
 
@@ -54,4 +53,4 @@ const isSelected = (toy) => {
     const toyCard = document.getElementById(`toy_${toy.num}`) as HTMLElement;
     toyCard.classList.add("is-selected");
   };
-}
+};
