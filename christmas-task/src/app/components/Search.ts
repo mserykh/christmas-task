@@ -1,7 +1,9 @@
 import data from "../../assets/data/data";
 import { render } from "./Render";
-import { searchFilter } from "./Filters";
+import { searchFilter, rangesFilters, attributesFilter } from "./Filters";
 import { renderToys } from "./RenderToys";
+import { sortToys } from "./Sorting";
+import { stateAttributeFilters, stateRangeFilters, stateSortingOption } from "../state/State";
 
 export const search = () => {
   const searchContainer = document.querySelector(".search") as HTMLElement;
@@ -13,6 +15,6 @@ export const onSearchEvent = () => {
   const searchIput = document.querySelector(".search") as HTMLInputElement;
   searchIput.addEventListener("input", (event) => {
     const value = (event.target as HTMLInputElement).value.toLowerCase();
-    renderToys(searchFilter(data, value));
+    renderToys(searchFilter(sortToys(rangesFilters(attributesFilter(data, stateAttributeFilters), stateRangeFilters), stateSortingOption.option), value));
   });
 };
