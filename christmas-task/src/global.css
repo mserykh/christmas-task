@@ -797,11 +797,12 @@ body {
 
   .main {
     padding-top: 70px;
+    min-height: calc(100vh - 70px);
   }
 
   .container--main {
     display: grid;
-    grid-template-columns: 374px 1fr;
+    grid-template-columns: 310px 1fr;
     column-gap: 20px;
   }
 
@@ -809,8 +810,8 @@ body {
     position: fixed;
     display: flex;
     flex-direction: column;
-    max-width: 374px;
-    row-gap: 10px;
+    max-width: 310px;
+    row-gap: 20px;
     overflow-y: scroll;
     overflow-x: hidden;
   }
@@ -825,7 +826,7 @@ body {
 
   .filters__title {
     font-size: 16px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
   }
 
   .filters__name {
@@ -885,11 +886,11 @@ body {
   }
 
   .filters__range {
-    width: 200px;
+    width: 120px;
   }
 
   .slider__inner {
-    width: 200px;
+    width: 120px;
   }
 
   .filters__select {
