@@ -49,10 +49,9 @@ const addToSelected = (toy) => {
 };
 
 const isSelected = (toy) => {
-  console.log(stateSelectedList.includes(toy));
-
   if (stateSelectedList.includes(toy)) {
     const toyCard = document.getElementById(`toy_${toy.num}`) as HTMLElement;
     toyCard.classList.add("is-selected");
   };
+
 };
