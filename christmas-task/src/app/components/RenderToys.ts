@@ -23,8 +23,8 @@ export const renderToys = (toys) => {
 const addEvents = (toy) => {
   const toyCard = document.getElementById(`toy_${toy.num}`) as HTMLElement;
   toyCard.addEventListener("click", () => {
-    addToSelected(toy.num);
-    if (stateSelectedList.includes(toy.num)) {
+    addToSelected(toy);
+    if (stateSelectedList.includes(toy)) {
       toyCard.classList.add("is-selected");
     }
     else {
@@ -33,9 +33,9 @@ const addEvents = (toy) => {
   });
 };
 
-const addToSelected = (id) => {
-  if (stateSelectedList.includes(id)) {
-    const index = stateSelectedList.indexOf(id);
+const addToSelected = (toy) => {
+  if (stateSelectedList.includes(toy)) {
+    const index = stateSelectedList.indexOf(toy);
     stateSelectedList.splice(index, 1);
   }
   else {
@@ -43,13 +43,15 @@ const addToSelected = (id) => {
       noSlotsMessage();
       return;
     }
-    stateSelectedList.push(id);
+    stateSelectedList.push(toy);
   }
   showSelectedCount();
 };
 
 const isSelected = (toy) => {
-  if (stateSelectedList.includes(toy.num)) {
+  console.log(stateSelectedList.includes(toy));
+
+  if (stateSelectedList.includes(toy)) {
     const toyCard = document.getElementById(`toy_${toy.num}`) as HTMLElement;
     toyCard.classList.add("is-selected");
   };

@@ -1,4 +1,6 @@
 import { getFromLocalStorage } from "../utils/LocalStorage";
+import { IToy } from "../utils/IToy";
+
 
 interface IAttributesFilter {
   shape: string[],
@@ -18,7 +20,7 @@ type StateSorting = {
   option: string
 };
 
-type SelectedList = string[];
+type SelectedList = IToy[];
 
 export const stateAttributeFilters: IAttributesFilter = {
   shape: [],

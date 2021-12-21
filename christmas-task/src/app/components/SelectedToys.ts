@@ -1,5 +1,6 @@
 import { render } from "./Render";
 import { stateSelectedList } from "../state/State";
+import { renderSelectedList } from "./RenderSelectedList";
 
 export const selectedToys = () => {
   const selectedToysContainer = document.querySelector(".selected");
@@ -30,4 +31,20 @@ export const selectedToysModal = () => {
     render(site, selectedToysModalTemplate());
   };
   renderSelectedToysModal();
+
+  const toysSelected = document.querySelector(".selected") as HTMLElement;
+  const cartModal = document.querySelector(".selected-modal") as HTMLElement;
+  const toysSelectedClose = document.querySelector(".selected-modal__close") as HTMLElement;
+
+  const openSelected = () => {
+    cartModal.style.display = "flex";
+    renderSelectedList(stateSelectedList);
+  };
+
+  const closeSelected = () => {
+    cartModal.style.display = "none";
+  };
+
+  toysSelected.addEventListener("click", openSelected);
+  toysSelectedClose.addEventListener("click", closeSelected);
 };
