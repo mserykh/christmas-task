@@ -32,7 +32,7 @@ const FILTERS = {
 
 export const attributesFiltersComponent = () => {
   const attributesFiltersContainer = document.querySelector(".filters__values");
-  const attributesFiltersTemplate = () => `<fieldset class="filters__value filters__value--shape">
+  const attributesFiltersTemplate = () => `<div class="filters__value filters__value--shape">
     <legend class="filters__name">Форма:</legend>
     <ul class="filters__checkboxes-list filters__checkboxes-list--shape">
       <li class="filters__checkboxes-item">
@@ -56,8 +56,8 @@ export const attributesFiltersComponent = () => {
         <label for="figurine_shape" class="visually-hidden filters__checkboxes-label">фигурка</label>
       </li>
     </ul>
-  </fieldset>
-  <fieldset class="filters__value filters__value--color">
+  </div>
+  <div class="filters__value filters__value--color">
     <legend class="filters__name">Цвет:</legend>
     <ul class="filters__checkboxes-list filters__checkboxes-list--color">
       <li class="filters__checkboxes-item">
@@ -81,8 +81,8 @@ export const attributesFiltersComponent = () => {
         <label for="green_color" class="visually-hidden filters__checkboxes-label">зелёный</label>
       </li>
     </ul>
-  </fieldset>
-  <fieldset class="filters__value filters__value--size">
+  </div>
+  <div class="filters__value filters__value--size">
     <legend class="filters__name">Размер:</legend>
     <ul class="filters__checkboxes-list filters__checkboxes-list--size">
       <li class="filters__checkboxes-item">
@@ -98,11 +98,11 @@ export const attributesFiltersComponent = () => {
         <label for="small_size" class="visually-hidden filters__checkboxes-label">малый</label>
       </li>
     </ul>
-  </fieldset>
-  <fieldset class="filters__value filters__value--favorite">
+  </div>
+  <div class="filters__value filters__value--favorite">
     <input class="filters__checkbox filters__checkbox--favorite" type="checkbox" name="favorite" value="favorite" id="favorite">
     <label class="filters__name" for="favorite">Только любимые:</label>
-  </fieldset>`;
+  </div>`;
 
   render(attributesFiltersContainer, attributesFiltersTemplate());
   addEventListeners();
