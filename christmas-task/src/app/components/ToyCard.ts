@@ -5,7 +5,7 @@ enum FavoriteText {
 
 export const toyTemplate = (toy) => `<li class="results__item toy" id="${getToyId(toy)}">
   <h2 class="toy__title">${toy.name}</h2>
-  <img class="toy__image" src="./assets/toys/${toy.num.toString()}.webp" alt="Сосулька красная">
+  <img class="toy__image" src="./assets/toys/${toy.num.toString()}.webp" alt="${toy.name}">
   <div class="toy__description">
     <p class="toy__qty">Количество: <span>${toy.count}</span></p>
     <p class="toy__year">Год покупки: <span>${toy.year}</span></p>
