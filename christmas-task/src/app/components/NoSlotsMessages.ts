@@ -18,6 +18,7 @@ export const noSlotsMessage = () => {
   noSlotsMessageModal();
   const noslotsModal =  document.querySelector(".noslots-modal") as HTMLElement;
   const noslotsClose = document.querySelector(".noslots-modal__close") as HTMLElement;
+  const site = document.querySelector(".app") as HTMLElement;
 
   noslotsClose.addEventListener("click" ,(e) => {
     closeModal(noslotsModal);
@@ -25,8 +26,14 @@ export const noSlotsMessage = () => {
 
   const closeModal = (modalWindow) => {
     modalWindow.style.display = "none";
-    const site = document.querySelector(".app") as HTMLElement;
+    
     site.removeChild(modalWindow);
+  }
+
+  window.onclick = function(event) {
+    if (event.target == noslotsModal) {
+      site.removeChild(noslotsModal);
+    }
   }
 };
 

@@ -3,7 +3,7 @@ import { stateSelectedList } from "../state/State";
 
 export const renderSelectedList = (toys) => {
   const modalInner = document.querySelector(".selected-modal__wrapper") as HTMLElement;
-  const selectedToyTemplate = (toy) => `<div class="selected-toy__wrapper"><img class="selected-toy__image" src="./assets/toys/${toy.num}.webp" alt="${toy.name}"><h3 class="selected-toy__title">${toy.name}</h3><button class="selected-toy__delete">Убрать</button></div>
+  const selectedToyTemplate = (toy) => `<div class="selected-toy__wrapper" id="${toy.num}"><img class="selected-toy__image" src="./assets/toys/${toy.num}.webp" alt="${toy.name}"><h3 class="selected-toy__title">${toy.name}</h3><button class="selected-toy__delete">Убрать</button></div>
   `;
   
   if (stateSelectedList.length === 0) {
