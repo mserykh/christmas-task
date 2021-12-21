@@ -39,7 +39,7 @@ const addToSelected = (id) => {
     stateSelectedList.splice(index, 1);
   }
   else {
-    if (stateSelectedList.length >= 3) {
+    if (stateSelectedList.length >= 20) {
       noSlotsMessage();
       return;
     }
