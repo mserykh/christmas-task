@@ -101,7 +101,7 @@ export const attributesFiltersComponent = () => {
 };
 
 const addEventListeners = ():void => {
-  const checkboxes = document.querySelectorAll(".filters__checkbox") as NodeListOf<HTMLInputElement>;
+  const checkboxes = document.querySelectorAll(".filters__checkbox") ;
   checkboxes.forEach(checkbox => {
     checkbox.addEventListener('change', onFilterChange );
   });

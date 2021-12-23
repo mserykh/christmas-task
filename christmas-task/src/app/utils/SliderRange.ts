@@ -23,8 +23,8 @@ export const sliderRanges = (rangeSlider: HTMLElement): void => {
     stateRangeFilters[input.id] = currentValueLeft.toString();
     const percent = ((currentValueLeft - min) / (max - min)) * 100;
     outputLeft.innerText = currentValueLeft.toString();
-    thumbLeft.style.left = percent + "%";
-    range.style.left = percent + "%";
+    thumbLeft.style.left = `${(100 - percent)}%`;
+    range.style.left = `${(100 - percent)}%`;
 
   }
   setLeftValue();
@@ -38,16 +38,16 @@ export const sliderRanges = (rangeSlider: HTMLElement): void => {
     stateRangeFilters[input.id] = currentValueRight.toString();
     const percent = ((currentValueRight - min) / (max - min)) * 100;
     outputRight.innerText = currentValueRight.toString();
-    thumbRight.style.right = (100 - percent) + "%";
-    range.style.right = (100 - percent) + "%";
+    thumbRight.style.right = `${(100 - percent)}%`;
+    range.style.right = `${(100 - percent)}%`;
   }
   setRightValue();
   
-  inputLeft.addEventListener("input", (e: Event): void => {
+  inputLeft.addEventListener("input", (): void => {
     setLeftValue();
     onRangeChange();
   });
-  inputRight.addEventListener("input", (e: Event): void => {
+  inputRight.addEventListener("input", (): void => {
     setRightValue();
     onRangeChange();
   });

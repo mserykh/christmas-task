@@ -19,10 +19,10 @@ export const reset = (): void => {
 
 const addEventListeners = (): void => {
   const bntReset = document.querySelector(".filters__reset") as HTMLElement;
-  bntReset.addEventListener("click", (e: Event): void => { onReset(e) } );
+  bntReset.addEventListener("click", (): void => { onReset() } );
 };
 
-const onReset = (e: Event): void => {
+const onReset = (): void => {
   stateAttributeFilters.shape = [];
   stateAttributeFilters.color = [];
   stateAttributeFilters.size = [];
@@ -32,18 +32,18 @@ const onReset = (e: Event): void => {
   stateRangeFilters.yearMin = "1940";
   stateRangeFilters.yearMax = "2020";
 
-  const checkboxes = document.querySelectorAll(".filters__checkbox") as NodeListOf<HTMLInputElement>;
-  checkboxes.forEach(checkbox => checkbox.checked = false);
-  const sliders = document.querySelectorAll(".range-slider") as NodeListOf<HTMLInputElement>;
-  const inputs = document.querySelectorAll(".filters__range") as NodeListOf<HTMLInputElement>;
+  const checkboxes = document.querySelectorAll(".filters__checkbox");
+  checkboxes.forEach(checkbox => (<HTMLInputElement>checkbox).checked = false);
+  const sliders = document.querySelectorAll(".range-slider");
+  const inputs = document.querySelectorAll(".filters__range");
   
   inputs.forEach(input => {
-    if (input.id === "qtyMin") { input.value = stateRangeFilters.qtyMin as string };
-    if (input.id === "qtyMax") { input.value = stateRangeFilters.qtyMax as string };
-    if (input.id === "yearMin") { input.value = stateRangeFilters.yearMin as string };
-    if (input.id === "yearMax") { input.value = stateRangeFilters.yearMax as string };
+    if (input.id === "qtyMin") { (<HTMLInputElement>input).value = stateRangeFilters.qtyMin  }
+    if (input.id === "qtyMax") { (<HTMLInputElement>input).value = stateRangeFilters.qtyMax  }
+    if (input.id === "yearMin") { (<HTMLInputElement>input).value = stateRangeFilters.yearMin  }
+    if (input.id === "yearMax") { (<HTMLInputElement>input).value = stateRangeFilters.yearMax  }
   });
 
-  sliders.forEach(slider => sliderRanges(slider));
+  sliders.forEach(slider => sliderRanges(slider as HTMLElement));
   renderToys(sortToys(rangesFilters(attributesFilter(data, stateAttributeFilters), stateRangeFilters), stateSortingOption.option));
 };

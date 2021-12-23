@@ -1,5 +1,4 @@
-import { getFromLocalStorage } from "../utils/LocalStorage";
-import { IAttributesFilter, IRangeFilters, IToy, SelectedList, StateSorting } from "../utils/Types";
+import { IAttributesFilter, IRangeFilters, SelectedList, StateSorting } from "../utils/Types";
 
 export const stateAttributeFilters: IAttributesFilter = {
   shape: [],

@@ -45,6 +45,6 @@ export const ranges = (): void => {
 
   render(rangesContainer, rangesComponent());
   
-  const rangeSliders = document.querySelectorAll(".range-slider") as NodeListOf<HTMLElement>;
-  rangeSliders.forEach(rangeSlider => sliderRanges(rangeSlider));
+  const rangeSliders = document.querySelectorAll(".range-slider");
+  rangeSliders.forEach(rangeSlider => sliderRanges(<HTMLElement>rangeSlider));
 };

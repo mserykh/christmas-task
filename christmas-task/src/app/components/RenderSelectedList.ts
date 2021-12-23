@@ -1,6 +1,6 @@
 import { render } from "./Render";
 import { stateSelectedList } from "../state/State";
-import { IToy, TemplateFunction, ToyTemplateFunction } from "../utils/Types";
+import { TemplateFunction, ToyTemplateFunction } from "../utils/Types";
 
 export const renderSelectedList = (): void => {
   const modalInner = document.querySelector(".selected-modal__wrapper") as HTMLElement;

@@ -22,7 +22,7 @@ export const noSlotsMessage = (): void => {
   const noslotsClose = document.querySelector(".noslots-modal__close") as HTMLElement;
   const site = document.querySelector(".app") as HTMLElement;
 
-  noslotsClose.addEventListener("click" ,(e: Event): void => {
+  noslotsClose.addEventListener("click" ,(): void => {
     closeModal(noslotsModal);
   });
 
