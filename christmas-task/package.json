@@ -6,15 +6,22 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx webpack serve",
-    "lint": "eslint ./src",
+    "lint": "eslint . --ext .ts",
     "build": "webpack"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.8.0",
+    "@typescript-eslint/eslint-plugin-tslint": "^5.8.0",
+    "@typescript-eslint/parser": "^5.8.0",
     "copy-webpack-plugin": "^10.0.0",
+    "eslint": "^8.5.0",
     "mini-css-extract-plugin": "^2.4.5",
+    "prettier": "^2.5.1",
+    "prettier-eslint": "^13.0.0",
+    "tslint": "^6.1.3",
     "typescript": "^4.5.2",
     "webpack-cli": "^4.9.1"
   },
