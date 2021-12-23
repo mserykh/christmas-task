@@ -1,8 +1,9 @@
+import { TemplateFunction } from "../utils/Types";
 import { render } from "./Render";
 
-export const toysList = () => {
-  const appContainer = document.querySelector(".container--main");
-  const controlsComponent = () => `<section class="results">
+export const toysList = (): void => {
+  const appContainer = document.querySelector(".container--main") as HTMLElement;
+  const controlsComponent: TemplateFunction = () => `<section class="results">
     <ul class="results__list">
     </ul>
   </section>`;

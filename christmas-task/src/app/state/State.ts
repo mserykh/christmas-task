@@ -1,26 +1,5 @@
 import { getFromLocalStorage } from "../utils/LocalStorage";
-import { IToy } from "../utils/IToy";
-
-
-interface IAttributesFilter {
-  shape: string[],
-  color: string[],
-  size: string[],
-  favorite: boolean
-}
-
-interface IRangeFilters {
-  qtyMin: string,
-  qtyMax: string,
-  yearMin: string,
-  yearMax: string
-} 
-
-type StateSorting = {
-  option: string
-};
-
-type SelectedList = IToy[];
+import { IAttributesFilter, IRangeFilters, IToy, SelectedList, StateSorting } from "../utils/Types";
 
 export const stateAttributeFilters: IAttributesFilter = {
   shape: [],

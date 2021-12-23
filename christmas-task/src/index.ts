@@ -13,7 +13,7 @@ import { renderToys } from "./app/components/RenderToys";
 import { toysList } from "./app/components/ToysList";
 import { selectedToysModal } from "./app/components/SelectedToys";
 
-const site = document.querySelector(".app");
+const site = document.querySelector(".app") as HTMLElement;
 render(site, staticPage());
 selectedToys();
 search();

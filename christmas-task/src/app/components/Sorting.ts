@@ -6,10 +6,11 @@ import { rangesFilters } from "./Filters";
 import { attributesFilter } from "./Filters";
 import { stateRangeFilters } from "../state/State";
 import { stateAttributeFilters } from "../state/State";
+import { IToy, TemplateFunction } from "../utils/Types";
 
 export const sorting = () => {
-  const sortingContainer = document.querySelector(".filters__sorting");
-  const controlsComponent = () => `<select name="sorting" id="sorting" class="filters__select">
+  const sortingContainer = document.querySelector(".filters__sorting") as HTMLElement;
+  const controlsComponent: TemplateFunction = () => `<select name="sorting" id="sorting" class="filters__select">
   <option value="default_sorting" ${ stateSortingOption.option === 'default_sorting' ? 'selected' : ''}>По умолчанию</option>
   <option value="name-asc_sorting" ${ stateSortingOption.option === 'name-asc_sorting' ? 'selected' : ''}>По названию от «А» до «Я»</option>
   <option value="name-desc_sorting" ${ stateSortingOption.option === 'name-desc_sorting' ? 'selected' : ''}>По названию от «Я» до «А»</option>
@@ -21,13 +22,13 @@ export const sorting = () => {
   addEventListeners();
 };
 
-const addEventListeners = () => {
+const addEventListeners = (): void => {
   const filterSelect = document.querySelector(".filters__select") as HTMLElement;
   filterSelect.addEventListener("change", (e: Event): void => { onSortValueChange(e) });
 };
 
 
-const onSortValueChange = (e: Event) => {
+const onSortValueChange = (e: Event): void => {
   const target = e.target as HTMLSelectElement;
 
   if (target.value === "default_sorting") {
@@ -60,33 +61,40 @@ const onSortValueChange = (e: Event) => {
   }
 };
 
-const sortByYearDesc = (toys) => {
+const sortByYearDesc = (toys: IToy[]): IToy[] => {
   return toys.slice().sort((toy1, toy2) => +toy2.year - +toy1.year);
 };
 
-const sortByYearAsc = (toys) => {
+const sortByYearAsc = (toys: IToy[]): IToy[] => {
   return toys.slice().sort((toy1, toy2) => +toy1.year - +toy2.year);
 };
 
-const sortByNameAsc = (toys) => {
+const sortByNameAsc = (toys: IToy[]): IToy[] => {
   return toys.slice().sort((toy1, toy2) => (toy1.name.toLowerCase() > toy2.name.toLowerCase()) ? 1 : (toy2.name.toLowerCase() > toy1.name.toLowerCase()) ? - 1 : 0);
 };
 
-const sortByNameDesc = (toys) => {
+const sortByNameDesc = (toys: IToy[]): IToy[] => {
   return toys.slice().sort((toy1, toy2) => (toy1.name.toLowerCase() > toy2.name.toLowerCase()) ? -1 : (toy2.name.toLowerCase() > toy1.name.toLowerCase()) ? 1 : 0);
 };
 
-export const sortToys = (toys, sortingOption) => {
+export const sortToys = (toys: IToy[], sortingOption: string) => {
+  let result: IToy[] = [];
   switch (sortingOption) {
     case "default_sorting": 
-      return toys;
+      result = toys;
+      break;
     case "name-asc_sorting": 
-      return sortByNameAsc(toys);
+      result = sortByNameAsc(toys);
+      break;
     case "name-desc_sorting": 
-      return sortByNameDesc(toys);
+      result = sortByNameDesc(toys);
+      break;
     case "year-asc_sorting": 
-      return sortByYearAsc(toys);
+      result = sortByYearAsc(toys);
+      break;
     case "year-desc_sorting": 
-      return sortByYearDesc(toys);
+      result = sortByYearDesc(toys);
+      break;
   }
+  return result;
 };

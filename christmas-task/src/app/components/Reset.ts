@@ -6,22 +6,23 @@ import { rangesFilters } from "./Filters";
 import { renderToys } from "./RenderToys";
 import { sliderRanges } from "../utils/SliderRange";
 import { sortToys } from "./Sorting";
+import { TemplateFunction } from "../utils/Types";
 
 
-export const reset = () => {
-  const resetBtnContainer = document.querySelector(".filters__sorting");
-  const resetBtnComponent = () => `<button class="filters__reset">Сброс фильтров</button>`;
+export const reset = (): void => {
+  const resetBtnContainer = document.querySelector(".filters__sorting") as HTMLElement;
+  const resetBtnComponent: TemplateFunction = () => `<button class="filters__reset">Сброс фильтров</button>`;
 
   render(resetBtnContainer, resetBtnComponent());
   addEventListeners();
 };
 
-const addEventListeners = () => {
+const addEventListeners = (): void => {
   const bntReset = document.querySelector(".filters__reset") as HTMLElement;
-  bntReset.addEventListener("click", (e) => { onReset(e) } );
+  bntReset.addEventListener("click", (e: Event): void => { onReset(e) } );
 };
 
-const onReset = (e) => {
+const onReset = (e: Event): void => {
   stateAttributeFilters.shape = [];
   stateAttributeFilters.color = [];
   stateAttributeFilters.size = [];
@@ -42,7 +43,7 @@ const onReset = (e) => {
     if (input.id === "yearMin") { input.value = stateRangeFilters.yearMin as string };
     if (input.id === "yearMax") { input.value = stateRangeFilters.yearMax as string };
   });
+
   sliders.forEach(slider => sliderRanges(slider));
   renderToys(sortToys(rangesFilters(attributesFilter(data, stateAttributeFilters), stateRangeFilters), stateSortingOption.option));
-  //renderToys(rangesFilters(attributesFilter(data, stateAttributeFilters), stateRangeFilters));
 };

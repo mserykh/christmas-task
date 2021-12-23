@@ -5,7 +5,7 @@ import { attributesFilter } from "../components/Filters";
 import { stateAttributeFilters, stateRangeFilters, stateSortingOption } from "../state/State";
 import { sortToys } from "../components/Sorting";
 
-export const sliderRanges = (rangeSlider) => {
+export const sliderRanges = (rangeSlider: HTMLElement): void => {
   const inputLeft = rangeSlider.querySelector(".filters__range--left") as HTMLInputElement;
   const inputRight = rangeSlider.querySelector(".filters__range--right") as HTMLInputElement;
   const thumbLeft = rangeSlider.querySelector(".thumb.left") as HTMLElement;
@@ -43,17 +43,16 @@ export const sliderRanges = (rangeSlider) => {
   }
   setRightValue();
   
-  inputLeft.addEventListener("input", (e) => {
+  inputLeft.addEventListener("input", (e: Event): void => {
     setLeftValue();
     onRangeChange();
   });
-  inputRight.addEventListener("input", (e) => {
+  inputRight.addEventListener("input", (e: Event): void => {
     setRightValue();
     onRangeChange();
   });
 };
 
-const onRangeChange = () => {
+const onRangeChange = (): void => {
   renderToys(sortToys(rangesFilters(attributesFilter(data, stateAttributeFilters), stateRangeFilters), stateSortingOption.option));
 };
-

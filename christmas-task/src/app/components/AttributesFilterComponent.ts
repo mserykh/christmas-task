@@ -4,17 +4,9 @@ import { stateAttributeFilters, stateSortingOption } from "../state/State";
 import { attributesFilter } from "./Filters";
 import { renderToys } from "./RenderToys";
 import { sortToys } from "./Sorting";
+import { Filters, TemplateFunction } from "../utils/Types";
 
-type Filters = { [key: string]: string };
-
-interface IFilterTypesList {
-  shape: string[];
-  color: string[];
-  size: string[];
-  favorite: Boolean;
-};
-
-const FILTERS = {
+const FILTERS: Filters = {
   sphere: "шар",
   bell: "колокольчик",
   cone: "шишка",
@@ -31,8 +23,8 @@ const FILTERS = {
 };
 
 export const attributesFiltersComponent = () => {
-  const attributesFiltersContainer = document.querySelector(".filters__values");
-  const attributesFiltersTemplate = () => `<div class="filters__value filters__value--shape">
+  const attributesFiltersContainer = document.querySelector(".filters__values") as HTMLElement;
+  const attributesFiltersTemplate: TemplateFunction = () => `<div class="filters__value filters__value--shape">
     <legend class="filters__name">Форма:</legend>
     <ul class="filters__checkboxes-list filters__checkboxes-list--shape">
       <li class="filters__checkboxes-item">
@@ -108,35 +100,36 @@ export const attributesFiltersComponent = () => {
   addEventListeners();
 };
 
-const addEventListeners = () => {
+const addEventListeners = ():void => {
   const checkboxes = document.querySelectorAll(".filters__checkbox") as NodeListOf<HTMLInputElement>;
   checkboxes.forEach(checkbox => {
     checkbox.addEventListener('change', onFilterChange );
   });
 };
 
-const onFilterChange = (e) => {
-
+const onFilterChange = (e: Event): void => {
   const target = e.target as HTMLInputElement;
-
-  if (target.name === "favorite" && stateAttributeFilters[target.name] === false) {
-    stateAttributeFilters[target.name] = true;
-    renderToys(sortToys((attributesFilter(data, stateAttributeFilters)), stateSortingOption.option));
+  if (target.name === "favorite") {
+    if (stateAttributeFilters[target.name] === false) {
+      stateAttributeFilters[target.name] = true;
+      renderToys(sortToys((attributesFilter(data, stateAttributeFilters)), stateSortingOption.option));
+    }
+  
+    else if (stateAttributeFilters[target.name] === true) {
+      stateAttributeFilters[target.name] = false;
+      renderToys(sortToys((attributesFilter(data, stateAttributeFilters)), stateSortingOption.option));
+    }  
   }
-
-  else if (target.name === "favorite" && stateAttributeFilters[target.name] === true) {
-    stateAttributeFilters[target.name] = false;
-    renderToys(sortToys((attributesFilter(data, stateAttributeFilters)), stateSortingOption.option));
-  }
-
-  else if (target.checked && !stateAttributeFilters[target.name].includes(target.value)) {
-    stateAttributeFilters[target.name].push(FILTERS[target.value]);
-    renderToys(sortToys((attributesFilter(data, stateAttributeFilters)), stateSortingOption.option));
-  }
-
-  else if (stateAttributeFilters[target.name].includes(FILTERS[target.value])) {
-    const index = stateAttributeFilters[target.name].indexOf(FILTERS[target.value]);
-    stateAttributeFilters[target.name].splice(index, 1);
-    renderToys(sortToys((attributesFilter(data, stateAttributeFilters)), stateSortingOption.option));
+  else if (target.name === "shape" || target.name === "color" || target.name === "size") {
+    if (target.checked && !stateAttributeFilters[target.name].includes(target.value)) {
+      stateAttributeFilters[target.name].push(FILTERS[target.value]);
+      renderToys(sortToys((attributesFilter(data, stateAttributeFilters)), stateSortingOption.option));
+    }
+  
+    else if (stateAttributeFilters[target.name].includes(FILTERS[target.value])) {
+      const index = stateAttributeFilters[target.name].indexOf(FILTERS[target.value]);
+      stateAttributeFilters[target.name].splice(index, 1);
+      renderToys(sortToys((attributesFilter(data, stateAttributeFilters)), stateSortingOption.option));
+    }
   }
 };

@@ -1,4 +1,4 @@
-import { IToy } from "../../app/utils/IToy";
+import { IToy } from "../../app/utils/Types";
 
 const data: IToy[] = [
   {

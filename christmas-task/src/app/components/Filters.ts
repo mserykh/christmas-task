@@ -1,22 +1,14 @@
-type Filters = { [key: string]: string };
+import { IAttributesFilter, IRangeFilters, IToy } from "../utils/Types";
 
-interface IFilterTypesList {
-  shape: string[];
-  color: string[];
-  size: string[];
-  favorite: Boolean;
-};
-
-export const searchFilter = (toys, searchValue) => {
-  const result = toys.filter((toy) => {
+export const searchFilter = (toys: IToy[], searchValue: string): IToy[] => {
+  const result = toys.filter((toy: IToy) => {
     const values = (Object.values(toy)).map(value => (value as string).toString().toLowerCase());
     return values.join("").includes(searchValue) ? toy : "";
   });
   return result;
 };
 
-
-export const attributesFilter = (toys, filters) => {
+export const attributesFilter = (toys: IToy[], filters: IAttributesFilter): IToy[] => {
   const result = toys
   .filter(toy => (filters.shape.length === 0 ? Boolean(toy.shape) : filters.shape.includes(toy.shape)))
   .filter(toy => (filters.color.length === 0 ? Boolean(toy.color) : filters.color.includes(toy.color)))
@@ -25,7 +17,7 @@ export const attributesFilter = (toys, filters) => {
   return result;
 };
 
-export const rangesFilters = (toys, filters) => {
+export const rangesFilters = (toys: IToy[], filters: IRangeFilters): IToy[] => {
   const result = toys
   .filter(toy => ((+toy.count >= +filters.qtyMin) && (+toy.count <= +filters.qtyMax)))
   .filter(toy => ((+toy.year >= +filters.yearMin) && (+toy.year <= +filters.yearMax)));

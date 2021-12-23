@@ -1,9 +1,10 @@
 import { render } from "./Render"
 import { sliderRanges } from "../utils/SliderRange";
+import { TemplateFunction } from "../utils/Types";
 
-export const ranges = () => {
-  const rangesContainer = document.querySelector(".filters__ranges");
-  const rangesComponent = () => `<fieldset class="filters__value filters__value--range">
+export const ranges = (): void => {
+  const rangesContainer = document.querySelector(".filters__ranges") as HTMLElement;
+  const rangesComponent: TemplateFunction = () => `<fieldset class="filters__value filters__value--range">
   <legend class="filters__name">Количество экземпляров:</legend>
   <div class="fieldset__inner">
     <div class="range-slider range-slider--qty">

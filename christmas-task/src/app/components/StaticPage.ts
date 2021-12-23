@@ -1,4 +1,6 @@
-export const staticPage = () => {
+import { TemplateFunction } from "../utils/Types";
+
+export const staticPage: TemplateFunction = () => {
     return `<header class="header">
     <div class="container--header container">
       <nav class="header__nav">

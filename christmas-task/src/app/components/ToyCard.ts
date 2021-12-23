@@ -1,9 +1,7 @@
-enum FavoriteText {
-  Yes = "Да",
-  No = "Нет"
-}
+import { FavoriteText, IToy } from "../utils/Types";
 
-export const toyTemplate = (toy) => `<li class="results__item toy" id="${getToyId(toy)}">
+
+export const toyTemplate = (toy: IToy): string => `<li class="results__item toy" id="${getToyId(toy)}">
   <h2 class="toy__title">${toy.name}</h2>
   <img class="toy__image" src="./assets/toys/${toy.num.toString()}.webp" alt="${toy.name}">
   <div class="toy__description">
@@ -17,8 +15,8 @@ export const toyTemplate = (toy) => `<li class="results__item toy" id="${getToyI
   <div class="toys__ribbon"></div>
 </li>`;
 
-const getToyId = (toy) => `toy_${toy.num}`;
-const getFavoriteText = (value) => {
+const getToyId = (toy: IToy) : string=> `toy_${toy.num}`;
+const getFavoriteText = (value: boolean): string => {
   if (value) {
     return FavoriteText.Yes;
   }
