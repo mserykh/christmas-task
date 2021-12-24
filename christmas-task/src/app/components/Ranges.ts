@@ -3,7 +3,7 @@ import { sliderRanges } from "../utils/SliderRange";
 import { TemplateFunction } from "../utils/Types";
 
 export const ranges = (): void => {
-  const rangesContainer = document.querySelector(".filters__ranges") as HTMLElement;
+  const rangesContainer = document.querySelector<HTMLElement>(".filters__ranges");
   const rangesComponent: TemplateFunction = () => `<fieldset class="filters__value filters__value--range">
   <legend class="filters__name">Количество экземпляров:</legend>
   <div class="fieldset__inner">
@@ -43,8 +43,10 @@ export const ranges = (): void => {
   </div>
   </fieldset>`;
 
-  render(rangesContainer, rangesComponent());
-  
-  const rangeSliders = document.querySelectorAll(".range-slider");
-  rangeSliders.forEach(rangeSlider => sliderRanges(<HTMLElement>rangeSlider));
+  if (rangesContainer !== null) {
+    render(rangesContainer, rangesComponent());
+  }
+
+  const rangeSliders = document.querySelectorAll<HTMLElement>(".range-slider");
+  rangeSliders.forEach(rangeSlider => sliderRanges(rangeSlider));
 };

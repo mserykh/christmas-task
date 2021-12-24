@@ -4,7 +4,7 @@ import { render } from "./Render";
 export const noSlotsMessage = (): void => {
 
   const noSlotsMessageModal = (): void => {
-    const site = document.querySelector(".app") as HTMLElement;
+    const site = document.querySelector<HTMLElement>(".app");
     const noSlotsMessageTemplate: TemplateFunction = () => `<div class="noslots-modal">
       <div class="noslots-modal__inner">
           <p class="no-slots">
@@ -13,28 +13,31 @@ export const noSlotsMessage = (): void => {
           <button class="noslots-modal__close">X</button>
       </div>
     </div>`;
-    render(site, noSlotsMessageTemplate());
+    if (site !== null) {
+      render(site, noSlotsMessageTemplate());
+    }
   };
 
   noSlotsMessageModal();
 
-  const noslotsModal =  document.querySelector(".noslots-modal") as HTMLElement;
-  const noslotsClose = document.querySelector(".noslots-modal__close") as HTMLElement;
-  const site = document.querySelector(".app") as HTMLElement;
+  const noslotsModal =  document.querySelector<HTMLElement>(".noslots-modal");
+  const noslotsClose = document.querySelector<HTMLElement>(".noslots-modal__close");
+  const site = document.querySelector<HTMLElement>(".app");
+  if (noslotsModal !== null && noslotsClose !== null && site !== null) {
+    noslotsClose.addEventListener("click" ,(): void => {
+      closeModal(noslotsModal);
+    });
 
-  noslotsClose.addEventListener("click" ,(): void => {
-    closeModal(noslotsModal);
-  });
+    const closeModal = (modalWindow: HTMLElement): void => {
+      modalWindow.style.display = "none";
+      
+      site.removeChild(modalWindow);
+    }
 
-  const closeModal = (modalWindow: HTMLElement): void => {
-    modalWindow.style.display = "none";
-    
-    site.removeChild(modalWindow);
-  }
-
-  window.onclick = function(event: Event): void {
-    if (event.target == noslotsModal) {
-      site.removeChild(noslotsModal);
+    window.onclick = function(event: Event): void {
+      if (event.target == noslotsModal) {
+        site.removeChild(noslotsModal);
+      }
     }
   }
 };

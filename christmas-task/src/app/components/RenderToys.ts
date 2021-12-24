@@ -7,51 +7,57 @@ import { noSlotsMessage } from "./NoSlotsMessages";
 import { IToy } from "../utils/Types";
 
 export const renderToys = (toys: IToy[]): void => {
-  const toysList = document.querySelector(".results__list") as HTMLElement;
+  const toysList = document.querySelector<HTMLElement>(".results__list");
 
-  toysList.innerHTML = "";
+  const isSelected = (toy: IToy): void => {
+    if (stateSelectedList.includes(toy)) {
+      const toyCard = document.getElementById(`toy_${toy.num}`);
+      if (toyCard !== null) {
+        toyCard.classList.add("is-selected");
+      }
+    }
+  };
+
+  const addEvents = (toy: IToy): void => {
+    const toyCard = document.getElementById(`toy_${toy.num}`);
+    if (toyCard !== null) {
+      toyCard.addEventListener("click", (): void => {
+        addToSelected(toy);
+        if (stateSelectedList.includes(toy)) {
+          toyCard.classList.add("is-selected");
+        }
+        else {
+          toyCard.classList.remove("is-selected");
+        }
+      });
+    }
+  };
+
+  const addToSelected = (toy: IToy): void => {
+    if (stateSelectedList.includes(toy)) {
+      const index = stateSelectedList.indexOf(toy);
+      stateSelectedList.splice(index, 1);
+    }
+    else {
+      if (stateSelectedList.length >= 20) {
+        noSlotsMessage();
+        return;
+      }
+      stateSelectedList.push(toy);
+    }
+    showSelectedCount();
+  };
+
+  if (toysList !== null) {
+    toysList.innerHTML = "";
     if (toys.length === 0) {
       noToysMessage(); 
     }
 
-  toys.forEach(toy => {
-    render(toysList, toyTemplate(toy));
-    isSelected(toy);
-    addEvents(toy);
-  });
-};
-
-const addEvents = (toy: IToy): void => {
-  const toyCard = document.getElementById(`toy_${toy.num}`) as HTMLElement;
-  toyCard.addEventListener("click", (): void => {
-    addToSelected(toy);
-    if (stateSelectedList.includes(toy)) {
-      toyCard.classList.add("is-selected");
-    }
-    else {
-      toyCard.classList.remove("is-selected");
-    }
-  });
-};
-
-const addToSelected = (toy: IToy): void => {
-  if (stateSelectedList.includes(toy)) {
-    const index = stateSelectedList.indexOf(toy);
-    stateSelectedList.splice(index, 1);
-  }
-  else {
-    if (stateSelectedList.length >= 20) {
-      noSlotsMessage();
-      return;
-    }
-    stateSelectedList.push(toy);
-  }
-  showSelectedCount();
-};
-
-const isSelected = (toy: IToy): void => {
-  if (stateSelectedList.includes(toy)) {
-    const toyCard = document.getElementById(`toy_${toy.num}`) as HTMLElement;
-    toyCard.classList.add("is-selected");
+    toys.forEach(toy => {
+      render(toysList, toyTemplate(toy));
+      isSelected(toy);
+      addEvents(toy);
+    });
   }
 };

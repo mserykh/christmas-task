@@ -23,7 +23,7 @@ const FILTERS: Filters = {
 };
 
 export const attributesFiltersComponent = () => {
-  const attributesFiltersContainer = document.querySelector(".filters__values") as HTMLElement;
+  const attributesFiltersContainer = document.querySelector<HTMLDivElement>(".filters__values");
   const attributesFiltersTemplate: TemplateFunction = () => `<div class="filters__value filters__value--shape">
     <legend class="filters__name">Форма:</legend>
     <ul class="filters__checkboxes-list filters__checkboxes-list--shape">
@@ -95,8 +95,10 @@ export const attributesFiltersComponent = () => {
     <input class="filters__checkbox filters__checkbox--favorite" type="checkbox" name="favorite" value="favorite" id="favorite">
     <label class="filters__name" for="favorite">Только любимые:</label>
   </div>`;
-
-  render(attributesFiltersContainer, attributesFiltersTemplate());
+  
+  if (attributesFiltersContainer !== null) {
+    render(attributesFiltersContainer, attributesFiltersTemplate());
+  }
   addEventListeners();
 };
 

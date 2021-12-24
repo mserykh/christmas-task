@@ -32,18 +32,18 @@ const onReset = (): void => {
   stateRangeFilters.yearMin = "1940";
   stateRangeFilters.yearMax = "2020";
 
-  const checkboxes = document.querySelectorAll(".filters__checkbox");
-  checkboxes.forEach(checkbox => (<HTMLInputElement>checkbox).checked = false);
-  const sliders = document.querySelectorAll(".range-slider");
-  const inputs = document.querySelectorAll(".filters__range");
+  const checkboxes = document.querySelectorAll<HTMLInputElement>(".filters__checkbox");
+  checkboxes.forEach(checkbox => (checkbox).checked = false);
+  const sliders = document.querySelectorAll<HTMLElement>(".range-slider");
+  const inputs = document.querySelectorAll<HTMLInputElement>(".filters__range");
   
   inputs.forEach(input => {
-    if (input.id === "qtyMin") { (<HTMLInputElement>input).value = stateRangeFilters.qtyMin  }
-    if (input.id === "qtyMax") { (<HTMLInputElement>input).value = stateRangeFilters.qtyMax  }
-    if (input.id === "yearMin") { (<HTMLInputElement>input).value = stateRangeFilters.yearMin  }
-    if (input.id === "yearMax") { (<HTMLInputElement>input).value = stateRangeFilters.yearMax  }
+    if (input.id === "qtyMin") { input.value = stateRangeFilters.qtyMin  }
+    if (input.id === "qtyMax") { input.value = stateRangeFilters.qtyMax  }
+    if (input.id === "yearMin") { input.value = stateRangeFilters.yearMin  }
+    if (input.id === "yearMax") { input.value = stateRangeFilters.yearMax  }
   });
 
-  sliders.forEach(slider => sliderRanges(slider as HTMLElement));
+  sliders.forEach(slider => sliderRanges(slider));
   renderToys(sortToys(rangesFilters(attributesFilter(data, stateAttributeFilters), stateRangeFilters), stateSortingOption.option));
 };

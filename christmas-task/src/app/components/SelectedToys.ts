@@ -8,20 +8,19 @@ import { renderToys } from "./RenderToys";
 import { sortToys } from "./Sorting";
 import { TemplateFunction } from "../utils/Types";
 
-const site = document.querySelector(".app") as HTMLElement;
-
 export const selectedToys = (): void => {
-  const selectedToysContainer = document.querySelector(".selected") as HTMLElement;
+  const selectedToysContainer = document.querySelector<HTMLElement>(".selected");
   const selectedToysComponent: TemplateFunction = () => `<span class="selected__count"></span>`;
-  render(selectedToysContainer, selectedToysComponent());
+  if (selectedToysContainer !== null) render(selectedToysContainer, selectedToysComponent());
 };
 
 export const showSelectedCount = (): void => {
-  const selectedCount = document.querySelector(".selected__count") as HTMLElement;
-  selectedCount.innerHTML = `${stateSelectedList.length}`;
+  const selectedCount = document.querySelector<HTMLElement>(".selected__count");
+  if (selectedCount !== null) selectedCount.innerHTML = `${stateSelectedList.length}`;
 };
 
 export const selectedToysModal = (): void => {
+  const site = document.querySelector<HTMLElement>(".app");
   const renderSelectedToysModal = (): void => {
     const selectedToysModalTemplate: TemplateFunction = () => `
     <div class="selected-modal">
@@ -35,7 +34,9 @@ export const selectedToysModal = (): void => {
         <button class="selected-modal__close">X</button>
       </div>
       </div>`;
-    render(site, selectedToysModalTemplate());
+      if (site !== null) {
+        render(site, selectedToysModalTemplate());
+      }
   };
 
   renderSelectedToysModal();
