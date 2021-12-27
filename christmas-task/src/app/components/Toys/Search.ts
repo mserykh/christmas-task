@@ -1,10 +1,10 @@
-import data from "../../assets/data/data";
-import { render } from "./Render";
+import data from "../../../assets/data/data";
+import { render } from "../../utils/Render";
 import { searchFilter, rangesFilters, attributesFilter } from "./Filters";
 import { renderToys } from "./RenderToys";
 import { sortToys } from "./Sorting";
-import { stateAttributeFilters, stateRangeFilters, stateSortingOption } from "../state/State";
-import { TemplateFunction } from "../utils/Types";
+import { stateAttributeFilters, stateRangeFilters, stateSortingOption } from "../../state/State";
+import { TemplateFunction } from "../../utils/Types";
 
 export const search = (): void => {
   const searchContainer = document.querySelector<HTMLElement>(".search");

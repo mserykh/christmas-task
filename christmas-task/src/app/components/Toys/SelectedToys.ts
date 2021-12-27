@@ -1,12 +1,12 @@
-import data from "../../assets/data/data";
-import { render } from "./Render";
-import { stateRangeFilters, stateSelectedList } from "../state/State";
+import data from "../../../assets/data/data";
+import { render } from "../../utils/Render";
+import { stateRangeFilters, stateSelectedList } from "../../state/State";
 import { renderSelectedList } from "./RenderSelectedList";
-import { stateAttributeFilters, stateSortingOption } from "../state/State";
+import { stateAttributeFilters, stateSortingOption } from "../../state/State";
 import { attributesFilter, rangesFilters } from "./Filters";
 import { renderToys } from "./RenderToys";
 import { sortToys } from "./Sorting";
-import { TemplateFunction } from "../utils/Types";
+import { TemplateFunction } from "../../utils/Types";
 
 export const selectedToys = (): void => {
   const selectedToysContainer = document.querySelector<HTMLElement>(".selected");

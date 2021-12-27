@@ -1,10 +1,10 @@
-import { render } from "./Render";
+import { render } from "../../utils/Render";
 import { toyTemplate } from "./ToyCard";
-import { stateSelectedList } from "../state/State";
+import { stateSelectedList } from "../../state/State";
 import { showSelectedCount } from "./SelectedToys";
 import { noToysMessage } from "./NoToysMessage";
 import { noSlotsMessage } from "./NoSlotsMessages";
-import { IToy } from "../utils/Types";
+import { IToy } from "../../utils/Types";
 
 export const renderToys = (toys: IToy[]): void => {
   const toysList = document.querySelector<HTMLElement>(".results__list");

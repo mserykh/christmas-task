@@ -1,5 +1,5 @@
-import { TemplateFunction } from "../utils/Types";
-import { render } from "./Render";
+import { TemplateFunction } from "../../utils/Types";
+import { render } from "../../utils/Render";
 
 export const toysList = (): void => {
   const appContainer = document.querySelector(".container--main") as HTMLElement;

@@ -1,4 +1,4 @@
-import { IAttributesFilter, IRangeFilters, IToy } from "../utils/Types";
+import { IAttributesFilter, IRangeFilters, IToy } from "../../utils/Types";
 
 export const searchFilter = (toys: IToy[], searchValue: string): IToy[] => {
   const result = toys.filter((toy: IToy) => {

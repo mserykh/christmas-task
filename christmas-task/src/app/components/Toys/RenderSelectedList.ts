@@ -1,6 +1,6 @@
-import { render } from "./Render";
-import { stateSelectedList } from "../state/State";
-import { TemplateFunction, ToyTemplateFunction } from "../utils/Types";
+import { render } from "../../utils/Render";
+import { stateSelectedList } from "../../state/State";
+import { TemplateFunction, ToyTemplateFunction } from "../../utils/Types";
 
 export const renderSelectedList = (): void => {
   const modalInner = document.querySelector<HTMLElement>(".selected-modal__wrapper");

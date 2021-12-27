@@ -1,10 +1,10 @@
-import { render } from "./Render";
-import data from "../../assets/data/data";
-import { stateAttributeFilters, stateSortingOption } from "../state/State";
+import { render } from "../../utils/Render";
+import data from "../../../assets/data/data";
+import { stateAttributeFilters, stateSortingOption } from "../../state/State";
 import { attributesFilter } from "./Filters";
 import { renderToys } from "./RenderToys";
 import { sortToys } from "./Sorting";
-import { Filters, TemplateFunction } from "../utils/Types";
+import { Filters, TemplateFunction } from "../../utils/Types";
 
 const FILTERS: Filters = {
   sphere: "шар",

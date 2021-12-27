@@ -1,5 +1,5 @@
-import { TemplateFunction } from "../utils/Types";
-import { render } from "./Render";
+import { TemplateFunction } from "../../utils/Types";
+import { render } from "../../utils/Render";
 
 export const noToysMessage = (): void => {
   const toysList = document.querySelector<HTMLElement>(".results__list");

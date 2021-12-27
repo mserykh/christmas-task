@@ -1,6 +1,6 @@
-import { render } from "./Render"
-import { sliderRanges } from "../utils/SliderRange";
-import { TemplateFunction } from "../utils/Types";
+import { render } from "../../utils/Render"
+import { sliderRanges } from "../../utils/SliderRange";
+import { TemplateFunction } from "../../utils/Types";
 
 export const ranges = (): void => {
   const rangesContainer = document.querySelector<HTMLElement>(".filters__ranges");

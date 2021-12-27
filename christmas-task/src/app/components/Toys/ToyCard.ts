@@ -1,4 +1,4 @@
-import { FavoriteText, IToy } from "../utils/Types";
+import { FavoriteText, IToy } from "../../utils/Types";
 
 
 export const toyTemplate = (toy: IToy): string => `<li class="results__item toy" id="${getToyId(toy)}">

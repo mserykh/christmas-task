@@ -1,12 +1,12 @@
-import data from "../../assets/data/data";
-import { render } from "./Render";
-import { stateAttributeFilters, stateRangeFilters, stateSortingOption } from "../state/State";
+import data from "../../../assets/data/data";
+import { render } from "../../utils/Render";
+import { stateAttributeFilters, stateRangeFilters, stateSortingOption } from "../../state/State";
 import { attributesFilter } from "./Filters";
 import { rangesFilters } from "./Filters";
 import { renderToys } from "./RenderToys";
-import { sliderRanges } from "../utils/SliderRange";
+import { sliderRanges } from "../../utils/SliderRange";
 import { sortToys } from "./Sorting";
-import { TemplateFunction } from "../utils/Types";
+import { TemplateFunction } from "../../utils/Types";
 
 
 export const reset = (): void => {

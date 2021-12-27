@@ -1,12 +1,12 @@
-import data from "../../assets/data/data";
-import { render } from "./Render";
+import data from "../../../assets/data/data";
+import { render } from "../../utils/Render";
 import { renderToys } from "./RenderToys";
-import { stateSortingOption } from "../state/State";
+import { stateSortingOption } from "../../state/State";
 import { rangesFilters } from "./Filters";
 import { attributesFilter } from "./Filters";
-import { stateRangeFilters } from "../state/State";
-import { stateAttributeFilters } from "../state/State";
-import { IToy, TemplateFunction } from "../utils/Types";
+import { stateRangeFilters } from "../../state/State";
+import { stateAttributeFilters } from "../../state/State";
+import { IToy, TemplateFunction } from "../../utils/Types";
 
 export const sorting = () => {
   const sortingContainer = document.querySelector(".filters__sorting") as HTMLElement;
