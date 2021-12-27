@@ -1,34 +1,40 @@
 import "./global.css";
-import data from "./assets/data/data";
 import { staticPage } from "./app/components/StaticPage";
-import { render } from "./app/components/Render";
-import { selectedToys, showSelectedCount } from "./app/components/SelectedToys";
-import { search, onSearchEvent } from "./app/components/Search";
-import { controls } from "./app/components/Controls";
-import { attributesFiltersComponent } from "./app/components/AttributesFilterComponent";
-import { ranges } from "./app/components/Ranges";
-import { sorting } from "./app/components/Sorting";
-import { reset } from "./app/components/Reset";
-import { renderToys } from "./app/components/RenderToys";
-import { toysList } from "./app/components/ToysList";
-import { selectedToysModal } from "./app/components/SelectedToys";
+import { startPage } from "./app/components/StartPage";
+import { render } from "./app/utils/Render";
+import { treePage } from "./app/components/TreePage";
+import { settingsLeftContainer } from "./app/components/Tree/SettingsLeftContainer";
+import { settingsRightContainer } from "./app/components/Tree/SettingsRightContainer";
+import { TreeComponent } from "./app/components/Tree/TreeComponent";
+import { setScene } from "./app/components/Tree/Scenes";
+import { setTree } from "./app/components/Tree/Trees";
+import { stateSelectedList } from "./app/state/State";
+import { renderSelectedToys } from "./app/components/Tree/RenderSelectedToys";
+import data from "./assets/data/data";
+import { letTheMusicPlay } from "./app/components/Tree/Audio";
+import { letItSnow } from "./app/components/Tree/Snow";
 
 const site = document.querySelector(".app") as HTMLElement;
 render(site, staticPage());
-selectedToys();
-search();
-onSearchEvent();
-showSelectedCount();
-controls();
-attributesFiltersComponent();
-ranges();
-sorting();
-reset();
-toysList();
-renderToys(data);
-selectedToysModal();
+const container = document.querySelector(".main") as HTMLElement;
+render(container, treePage());
 
+settingsLeftContainer();
+TreeComponent();
+settingsRightContainer();
+setScene();
+setTree();
 
+if (stateSelectedList.length === 0 ) {
+  const toys = data.filter(el => +el.num < 21);
+  renderSelectedToys(toys);
+}
+letTheMusicPlay();
+letItSnow();
+/*
+
+*/
+/*
 console.log(`
 
 Самооценка: 198 / 200
@@ -81,3 +87,4 @@ console.log(`
 11. Дополнительный функционал на выбор +10
 Отображение корзины отобранных игрушек в модальном окне и возможность убрать из отобранных из корзины по кнопке "Убрать"
 `);
+*/
