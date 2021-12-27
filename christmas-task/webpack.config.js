@@ -52,7 +52,8 @@ const config = {
       patterns: [
         { from: './public', to: './public' },
         { from: './src/assets/toys', to: './assets/toys' },
-        { from: './src/assets/img', to: './assets/img' }
+        { from: './src/assets/img', to: './assets/img' },
+        { from: './src/assets/audio', to: './assets/audio' }
       ]
     })
   ],
