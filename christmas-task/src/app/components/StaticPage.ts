@@ -9,7 +9,10 @@ export const staticPage: TemplateFunction = () => {
         </a>
         <ul class="site-nav">
           <li class="site-nav__item">
-            <a class="site-nav__link site-nav__link--active">Игрушки</a>
+            <a class="site-nav__link">Игрушки</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link">Ёлка</a>
           </li>
         </ul>
       </nav>
