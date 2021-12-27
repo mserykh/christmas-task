@@ -1,0 +1,23 @@
+import data from "../../assets/data/data";
+import { attributesFiltersComponent } from "./Toys/AttributesFilterComponent";
+import { controls } from "./Toys/Controls";
+import { ranges } from "./Toys/Ranges";
+import { renderToys } from "./Toys/RenderToys";
+import { reset } from "./Toys/Reset";
+import { search, onSearchEvent } from "./Toys/Search";
+import { selectedToys, showSelectedCount, selectedToysModal } from "./Toys/SelectedToys";
+import { sorting } from "./Toys/Sorting";
+import { toysList } from "./Toys/ToysList";
+
+selectedToys();
+search();
+onSearchEvent();
+showSelectedCount();
+controls();
+attributesFiltersComponent();
+ranges();
+sorting();
+reset();
+toysList();
+renderToys(data);
+selectedToysModal();
