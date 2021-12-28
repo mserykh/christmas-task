@@ -43,7 +43,7 @@ export const ranges = (): void => {
   </div>
   </fieldset>`;
 
-  if (rangesContainer !== null) {
+  if (rangesContainer) {
     render(rangesContainer, rangesComponent());
   }
 

@@ -14,7 +14,7 @@ export const controls = (): void => {
       <h3 class="filters__title">Сортировка</h3>
     </div>
   </section>`;
-  if (appContainer !== null) {
+  if (appContainer) {
     render(appContainer, controlsComponent());
   }
 };

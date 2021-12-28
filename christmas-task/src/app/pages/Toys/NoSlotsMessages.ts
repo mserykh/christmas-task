@@ -13,7 +13,7 @@ export const noSlotsMessage = (): void => {
           <button class="noslots-modal__close">X</button>
       </div>
     </div>`;
-    if (site !== null) {
+    if (site) {
       render(site, noSlotsMessageTemplate());
     }
   };
@@ -30,12 +30,11 @@ export const noSlotsMessage = (): void => {
 
     const closeModal = (modalWindow: HTMLElement): void => {
       modalWindow.style.display = "none";
-      
       site.removeChild(modalWindow);
     }
 
     window.onclick = function(event: Event): void {
-      if (event.target == noslotsModal) {
+      if (event.target === noslotsModal) {
         site.removeChild(noslotsModal);
       }
     }
