@@ -1,9 +1,9 @@
 import data from "../../assets/data/data";
-import { rangesFilters } from "../components/Toys/Filters";
-import { renderToys } from "../components/Toys/RenderToys";
-import { attributesFilter } from "../components/Toys/Filters";
+import { rangesFilters } from "../pages/Toys/Filters";
+import { renderToys } from "../pages/Toys/RenderToys";
+import { attributesFilter } from "../pages/Toys/Filters";
 import { stateAttributeFilters, stateRangeFilters, stateSortingOption } from "../state/State";
-import { sortToys } from "../components/Toys/Sorting";
+import { sortToys } from "../pages/Toys/Sorting";
 
 export const sliderRanges = (rangeSlider: HTMLElement): void => {
   const inputLeft = rangeSlider.querySelector(".filters__range--left") as HTMLInputElement;
@@ -23,14 +23,11 @@ export const sliderRanges = (rangeSlider: HTMLElement): void => {
     stateRangeFilters[input.id] = currentValueLeft.toString();
     const percent = ((currentValueLeft - min) / (max - min)) * 100;
     outputLeft.innerText = currentValueLeft.toString();
-    thumbLeft.style.left = `${(100 - percent)}%`;
-    range.style.left = `${(100 - percent)}%`;
-
     thumbLeft.style.left = `${(percent)}%`;
     range.style.left = `${(percent)}%`;
   }
   setLeftValue();
-  
+ 
   function setRightValue(): void {
     const input = inputRight;
     const min = parseInt(input.min);
@@ -46,6 +43,7 @@ export const sliderRanges = (rangeSlider: HTMLElement): void => {
   setRightValue();
   
   inputLeft.addEventListener("input", (): void => {
+
     setLeftValue();
     onRangeChange();
   });
