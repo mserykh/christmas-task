@@ -1,90 +1,15 @@
 import "./global.css";
-import { staticPage } from "./app/components/StaticPage";
-import { startPage } from "./app/components/StartPage";
+import { appTemplate } from "./app/pages/App";
+import { startPage } from "./app/pages/StartPage";
 import { render } from "./app/utils/Render";
-import { treePage } from "./app/components/TreePage";
-import { settingsLeftContainer } from "./app/components/Tree/SettingsLeftContainer";
-import { settingsRightContainer } from "./app/components/Tree/SettingsRightContainer";
-import { TreeComponent } from "./app/components/Tree/TreeComponent";
-import { setScene } from "./app/components/Tree/Scenes";
-import { setTree } from "./app/components/Tree/Trees";
-import { stateSelectedList } from "./app/state/State";
-import { renderSelectedToys } from "./app/components/Tree/RenderSelectedToys";
-import data from "./assets/data/data";
-import { letTheMusicPlay } from "./app/components/Tree/Audio";
-import { letItSnow } from "./app/components/Tree/Snow";
+import { routing } from "./app/utils/Routing";
+import { startBtn } from "./app/pages/StartPage/StartBtn";
 
-const site = document.querySelector(".app") as HTMLElement;
-render(site, staticPage());
-const container = document.querySelector(".main") as HTMLElement;
-render(container, treePage());
-
-settingsLeftContainer();
-TreeComponent();
-settingsRightContainer();
-setScene();
-setTree();
-
-if (stateSelectedList.length === 0 ) {
-  const toys = data.filter(el => +el.num < 21);
-  renderSelectedToys(toys);
+const app = document.querySelector(".app") as HTMLElement;
+render(app, appTemplate());
+const container = document.querySelector<HTMLElement>(".main");
+if (container) {
+  render(container, startPage());
 }
-letTheMusicPlay();
-letItSnow();
-/*
-
-*/
-/*
-console.log(`
-
-Самооценка: 198 / 200
-1.  Выполняются требования к вёрстке +10
-
-2. Карточка игрушки содержит её изображение, название, текстом или условным значком обозначено количество экземпляров, год покупки, форма, цвет, размер, является ли игрушка любимой +10
-
-3. Добавление игрушек в избранное +20
-Выводится попап, если больше 20 добавлено
-
-4. Сортировка +20
-Сортируются только те игрушки, которые в данный момент отображаются на странице
-сортировка игрушек по названию в возрастающем и спадающем порядке +10
-сортировка игрушек по году их приобретения в возрастающем и спадающем порядке +10
-
-5. Фильтры в указанном диапазоне от и до +30
-
-6. Фильтры по значению +30
-Выбранные фильтры выделяются стилем.
-фильтры по форме +5
-фильтры по цвету +5
-фильтры по размеру +5
-можно отобразить только любимые игрушки +5
-можно отфильтровать игрушки по нескольким фильтрам одного типа +10
-Для нескольких фильтров одного типа отображаются игрушки, которые соответствуют хоть одному выбранному фильтру. Например, можно отобразить снежинки и колокольчики; или белые, синие и красные игрушки; или большие и средние.
-
-7. Можно отфильтровать игрушки по нескольким фильтрам разного типа +20
-Для нескольких фильтров разного типа отображаются только те игрушки, которые соответствуют всем выбранным фильтрам.
-Например, можно отобразить только синие шары. Или любимые белые и красные игрушки купленные в 1940-1960 годах.
-Если игрушек, соответствующих всем выбранным фильтрам нет, на странице выводится уведомление в человекочитаемом формате, например, "Извините, совпадений не обнаружено"
-
-8. Сброс фильтров +20
-есть кнопка reset для сброса фильтров +10
-Кнопка reset сбрасывает только фильтры, не влияя на порядок сортировки или игрушки, добавленные в избранное.
-После использования кнопки reset фильтры остаются работоспособными
-при сбросе фильтров кнопкой reset, ползунки range slider сдвигаются к краям, значения ползунков возвращаются к первоначальным, range slider закрашивается одним цветом +10
-
-9. Сохранение настроек в local storage 0
-
-10. Поиск +28
-при открытии приложения курсор находится в поле поиска +2
-автозаполнение поля поиска отключено (нет выпадающего списка с предыдущими запросами) +2
-есть placeholder +2
-в поле поиска есть крестик, позволяющий очистить поле поиска 0
-если нет совпадения последовательности букв в поисковом запросе с названием игрушки, выводится уведомление в человекочитаемом формате, например "Извините, совпадений не обнаружено" +2
-при вводе поискового запроса на странице остаются только те игрушки, в которых есть указанные в поиске буквы в указанном порядке. При этом не обязательно, чтобы буквы были в начале слова. Регистр символов при поиске не учитывается +10
-Поиск ведётся только среди игрушек, которые в данный момент отображаются на странице.
-если очистить поле поиска, на странице отображаются игрушки, соответствующие всем выбранным фильтрам и настройкам сортировки +10
-
-11. Дополнительный функционал на выбор +10
-Отображение корзины отобранных игрушек в модальном окне и возможность убрать из отобранных из корзины по кнопке "Убрать"
-`);
-*/
+routing();
+startBtn();
