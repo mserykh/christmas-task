@@ -6,7 +6,6 @@ export const letTheMusicPlay = (): void => {
 
   const container = document.querySelector<HTMLElement>(".settings__snow-audio");
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const audio = new Audio() ;
   audio.src = "./assets/audio/greendolphinstreet.mp3";
   let isPlaying = false;
@@ -15,7 +14,7 @@ export const letTheMusicPlay = (): void => {
     render(container, audioControlTemplate());
   }
 
-  const audioToggle = (e) => {
+  const audioToggle = (e: Event) => {
     if (isPlaying) {
       audio.currentTime = 0;
       audio.pause();
@@ -31,7 +30,8 @@ export const letTheMusicPlay = (): void => {
     }
   }
 
-  const toggleIcon = (e) => {
+  const toggleIcon = (e: Event) => {
+
     if (!isPlaying) {
       (e.target as HTMLElement).classList.remove("control--active");
     }
@@ -40,7 +40,7 @@ export const letTheMusicPlay = (): void => {
     }
   }
 
-  const onAudioClick = (e) => {
+  const onAudioClick = (e: Event) => {
     audioToggle(e);
   };
 
