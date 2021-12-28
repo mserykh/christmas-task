@@ -38,10 +38,8 @@ export const settingsLeftContainer = (): void => {
         <li class="settings__lights-item settings__item"></li>
       </ul>
       <div class="settings__lights-control">
-        <input class="lights-onoff" type="checkbox">
       </div>
     </div>
-    <button class="settings__reset-btn">Сбросить настройки</button>
   </section>`;
   if (appContainer !== null) {
     render(appContainer, settingsComponent());
