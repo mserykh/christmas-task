@@ -26,6 +26,8 @@ export const sliderRanges = (rangeSlider: HTMLElement): void => {
     thumbLeft.style.left = `${(100 - percent)}%`;
     range.style.left = `${(100 - percent)}%`;
 
+    thumbLeft.style.left = `${(percent)}%`;
+    range.style.left = `${(percent)}%`;
   }
   setLeftValue();
   
