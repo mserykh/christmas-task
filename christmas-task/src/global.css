@@ -1063,11 +1063,12 @@ body {
 }
 
 .settings__item:hover {
-  border: 2px solid #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 0 15px 3px #FFFFFF;
 }
 
 .settings__item--active {
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(255, 255, 255, 0.5);
   box-shadow: 0px 0 10px 3px #24C5DB;
 }
 
