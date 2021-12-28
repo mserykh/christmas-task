@@ -51,7 +51,7 @@ function cloneElement(e: DragEvent, img: HTMLElement) {
   imgClone.style.position = "absolute";
   imgClone.style.left = `${e.offsetX}px`;
   imgClone.style.top = `${e.offsetY}px`;
-   imgClone.style.transform = `translate(-50%, -50%)`;
+  imgClone.style.transform = `translate(-50%, -50%)`;
   const tree = document.querySelector(".tree");
   if (tree) {
     tree.appendChild(imgClone);
