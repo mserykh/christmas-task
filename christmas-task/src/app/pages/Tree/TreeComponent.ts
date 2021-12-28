@@ -13,25 +13,25 @@ export const TreeComponent = (): void => {
   </section>`;
   if (appContainer) {
     render(appContainer, settingsComponent());
-    document.addEventListener("drop", onDropEvent);
+
     const dropArea = document.querySelector<HTMLElement>(".tree__drop-area");
     if (dropArea) {
+      dropArea.addEventListener("drop", onDropEvent);
       dropArea.addEventListener("dragover", onDragOver);
     }
   }
 };
 
-function onDropEvent(e: DragEvent) {
+function onDropEvent(this: HTMLElement, e: DragEvent) {
   e.preventDefault();
-  const target = e.target as HTMLElement;
-  if (target.classList.contains("tree__drop-area")) {
+  if (this.classList.contains("tree__drop-area")) {
     const num = (<DataTransfer>e.dataTransfer).getData("num");
     let qty = (<DataTransfer>e.dataTransfer).getData("qty");
     const item = document.querySelector<HTMLElement>(`.settings__toys-item[data-num="${num}"]`) as HTMLElement;
     const img = item.querySelector<HTMLElement>(".settings__toys-img");
     if (img) { 
       if (+qty > 0) {
-        cloneElement(e, img);
+        cloneElement(this, e, img);
         qty = (+qty - 1).toString();
         (item .querySelector<HTMLElement>(".settings__toys-count") as HTMLElement).innerText = qty;
       }
@@ -43,7 +43,7 @@ function onDragOver(e: DragEvent) {
   e.preventDefault();
 }
 
-function cloneElement(e: DragEvent, img: HTMLElement) {
+function cloneElement(container: HTMLElement, e: DragEvent, img: HTMLElement) {
   const imgClone = img.cloneNode() as HTMLElement;
   const style = getComputedStyle(img);
   const width = style.width;
@@ -52,8 +52,7 @@ function cloneElement(e: DragEvent, img: HTMLElement) {
   imgClone.style.left = `${e.offsetX}px`;
   imgClone.style.top = `${e.offsetY}px`;
   imgClone.style.transform = `translate(-50%, -50%)`;
-  const tree = document.querySelector(".tree");
-  if (tree) {
-    tree.appendChild(imgClone);
+  if (container) {
+    container.appendChild(imgClone);
   }
 }
