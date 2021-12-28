@@ -40,8 +40,8 @@ export const selectedToysModal = (): void => {
       </div>
       </div>`;
       if (site) {
-        if (site.hasChildNodes()) {
-          site.removeChild(site.lastChild as HTMLElement);
+        if ((<HTMLElement>site.lastChild).classList.contains("selected-modal")) {
+          site.removeChild((<HTMLElement>site.lastChild));
         }
         render(site, selectedToysModalTemplate());
       }
