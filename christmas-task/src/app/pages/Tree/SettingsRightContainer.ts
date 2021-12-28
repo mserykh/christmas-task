@@ -6,7 +6,7 @@ export const settingsRightContainer = (): void => {
   const settingsComponent: TemplateFunction = () => `<section class="settings settings--right">
     <div class="settings__toys">
       <h3 class="settings__title">Игрушки</h3>
-      <ul class="settings__toys-list">
+      <ul class="settings__toys-list" draggable="true">
       </ul>
     </div>
     <button class="settings__save-btn settings__save-btn--tree">Сохранить ёлку</button>

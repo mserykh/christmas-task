@@ -1,6 +1,6 @@
 import { TemplateFunction } from "../utils/Types";
 
-export const staticPage: TemplateFunction = () => {
+export const appTemplate: TemplateFunction = () => {
     return `<header class="header">
     <div class="container--header container">
       <nav class="header__nav">
@@ -9,10 +9,10 @@ export const staticPage: TemplateFunction = () => {
         </a>
         <ul class="site-nav">
           <li class="site-nav__item">
-            <a class="site-nav__link">Игрушки</a>
+            <a class="site-nav__link" id="toys-page">Игрушки</a>
           </li>
           <li class="site-nav__item">
-            <a class="site-nav__link">Ёлка</a>
+            <a class="site-nav__link" id="tree-page">Ёлка</a>
           </li>
         </ul>
       </nav>
@@ -25,8 +25,6 @@ export const staticPage: TemplateFunction = () => {
     </div>
   </header>
   <main class="main">
-    <div class="container--main container">
-    </div>
   </main>
   <footer class="footer">
     <div class="container container--footer">
