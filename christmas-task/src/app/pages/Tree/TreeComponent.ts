@@ -23,14 +23,18 @@ export const TreeComponent = (): void => {
 
 function onDropEvent(e: DragEvent) {
   e.preventDefault();
-  console.log(e);
   const target = e.target as HTMLElement;
   if (target.classList.contains("tree__drop-area")) {
     const num = (<DataTransfer>e.dataTransfer).getData("num");
-    console.log(num);
-    const img = document.querySelector<HTMLElement>(`.settings__toys-item[data-num="${num}"] .settings__toys-img`);
+    let qty = (<DataTransfer>e.dataTransfer).getData("qty");
+    const item = document.querySelector<HTMLElement>(`.settings__toys-item[data-num="${num}"]`) as HTMLElement;
+    const img = item.querySelector<HTMLElement>(".settings__toys-img");
     if (img) { 
-      cloneElement(e, img);
+      if (+qty > 0) {
+        cloneElement(e, img);
+        qty = (+qty - 1).toString();
+        (item .querySelector<HTMLElement>(".settings__toys-count") as HTMLElement).innerText = qty;
+      }
     }
   }
 }
@@ -39,7 +43,7 @@ function onDragOver(e: DragEvent) {
   e.preventDefault();
 }
 
-function cloneElement(e: DragEvent, img: HTMLElement ) {
+function cloneElement(e: DragEvent, img: HTMLElement) {
   const imgClone = img.cloneNode() as HTMLElement;
   const style = getComputedStyle(img);
   const width = style.width;
