@@ -1,10 +1,8 @@
-import { settingsLeftContainer } from "./SettingsLeftContainer";
-
 export const setScene = (): void => {
   const settingsScenesList = document.querySelector<HTMLElement>(".settings__scene-list");
 
   const sceneOnClick = (e: Event): void => {
-    if (settingsScenesList !== null) {
+    if (settingsScenesList) {
       Array.from(settingsScenesList.children).forEach(child => {
         if ((<HTMLElement>child).classList.contains("settings__item--active")) {
           (<HTMLElement>child).classList.remove("settings__item--active");
@@ -23,12 +21,12 @@ export const setScene = (): void => {
     const backgroundImage = style.backgroundImage;
 
     const treeBackground = document.querySelector<HTMLElement>(".tree-container");
-    if (treeBackground !== null) {
+    if (treeBackground) {
       treeBackground.style.backgroundImage = backgroundImage;
     }
   };
 
-  if (settingsScenesList !== null) {
+  if (settingsScenesList) {
     settingsScenesList.addEventListener("click", sceneOnClick);
   }
 };
