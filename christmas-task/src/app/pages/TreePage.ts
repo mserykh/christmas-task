@@ -3,6 +3,7 @@ import { stateSelectedList } from "../state/State";
 import { render } from "../utils/Render";
 import { IToy, TemplateFunction } from "../utils/Types";
 import { letTheMusicPlay } from "./Tree/Audio";
+import { lights } from "./Tree/Lights";
 import { renderSelectedToys } from "./Tree/RenderSelectedToys";
 import { setScene } from "./Tree/Scenes";
 import { settingsLeftContainer } from "./Tree/SettingsLeftContainer";
@@ -38,4 +39,5 @@ export const treePage = () => {
   renderSelectedToys(toys);
   letTheMusicPlay();
   letItSnow();
+  lights();
 };

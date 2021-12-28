@@ -1097,6 +1097,10 @@ body {
 
 }
 
+.tree__drop-area {
+  z-index: 5;
+}
+
 @media (max-width: 1168px) {
 
   .container--tree {
@@ -1183,7 +1187,11 @@ body {
 
 .settings__lights-list {
   display: flex;
-  column-gap: 10px;
+  column-gap: 20px;
+}
+
+.settings__lights-control {
+  margin-top: 15px;
 }
 
 .settings__lights-item {
@@ -1193,10 +1201,10 @@ body {
 }
 
 .settings__lights-item:nth-child(1) {
-  background: linear-gradient(135deg, #5E16B1 30%, #d6fcf7 30% 50%, #eff31e 50% 70%, #02ecfd 70%);
+  background: linear-gradient(135deg, #B87AFF 30%, #d6fcf7 30% 50%, #eff31e 50% 70%, #02ecfd 70%);
 }
 .settings__lights-item:nth-child(2) {
-  background-color: #5E16B1;
+  background-color: #B87AFF;
 }
 .settings__lights-item:nth-child(3) {
   background-color: #d6fcf7;
@@ -1206,10 +1214,6 @@ body {
 }
 .settings__lights-item:nth-child(5) {
   background-color: #02ecfd;
-}
-
-.settings__lights-item:nth-child(2) + .settings__items--active {
-  box-shadow:  0 0 10px #5E16B1;
 }
 
 .settings__save-btn,
@@ -1285,19 +1289,125 @@ body {
 
 .tree__lights {
   position: absolute;
-
-
-  top: 0;
-  left: 0;
-}
-
-.tree__lightrope {
   display: flex;
+  justify-content: center;
+  width: 100%;
+  max-height: calc(100vh - 190px);
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
 }
 
-.tree__bulb {
+.lightrope {
+  position: absolute;
+  max-width: 100%;
+}
+
+.bulb {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background-color: #FDD700;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
 }
+
+.bulb.purple {
+  animation-name: purple;
+}
+
+.bulb.white {
+  animation-name: white;
+}
+
+.bulb.yellow {
+  animation-name: yellow;
+}
+
+.bulb.blue {
+  animation-name: blue;
+}
+
+.bulb:nth-child(1n+1).color {
+  animation-name: blue;
+}
+
+.bulb:nth-child(2n+2).color {
+  animation-name: purple;
+}
+
+.bulb:nth-child(3n+3).color {
+  animation-name: white;
+}
+
+.bulb:nth-child(4n+4).color {
+  animation-name: yellow;
+}
+
+.bulb:nth-child(1n+1) {
+  animation-duration: 0.4s;
+  animation-delay: 1s;
+}
+
+.bulb:nth-child(2n+2) {
+  animation-duration: 1s;
+}
+
+.bulb:nth-child(3n+3) {
+  animation-duration: 1.4s;
+}
+
+.bulb:nth-child(odd) {
+  animation-duration: 1.8s;
+}
+
+@keyframes purple {
+  0%, 100% {
+    background-color: #B87AFF;
+    box-shadow: 0px 0px 16px 3px #B87AFF, inset 0px 0px 6px -1px #FFFFFF;
+  }
+
+  50% {
+    background: rgba(184, 122, 255, 0.5);
+    box-shadow: 0px 0px 16px 3px rgba(102, 79, 129, 0.3), inset 0px 0px 6px -1px #FFFFFF;
+  }
+}
+
+@keyframes white {
+  0%, 100% {
+    background-color: #D6FCF7;
+    box-shadow: 0px 0px 16px 3px #D6FCF7, inset 0px 0px 6px -1px #FFFFFF;
+  }
+
+  50% {
+    background: rgba(214, 252, 247, 0.5);
+    box-shadow: 0px 0px 16px 3px rgba(214, 252, 247, 0.3), inset 0px 0px 6px -1px #FFFFFF;
+  }
+}
+
+@keyframes yellow {
+  0%, 100% {
+    background-color: #FFEE06;
+    box-shadow: 0px 0px 16px 3px #FFEE06, inset 0px 0px 6px -1px #FFFFFF;
+  }
+
+  50% {
+    background: rgba(255, 238, 6, 0.5);
+    box-shadow: 0px 0px 16px 3px rgba(255, 238, 6, 0.3), inset 0px 0px 6px -1px #FFFFFF;
+  }
+}
+
+@keyframes blue {
+  0%, 100% {
+    background-color: #02ECFD;
+    box-shadow: 0px 0px 16px 3px #02ECFD, inset 0px 0px 6px -1px #FFFFFF;
+  }
+
+  50% {
+    background: rgba(2, 236, 253, 0.3);
+    box-shadow: 0px 0px 16px 3px rgba(2, 236, 253, 0.2), inset 0px 0px 6px -1px #FFFFFF;
+  }
+}
+

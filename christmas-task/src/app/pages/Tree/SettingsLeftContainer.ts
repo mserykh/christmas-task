@@ -31,13 +31,15 @@ export const settingsLeftContainer = (): void => {
     <div class="settings__lights">
       <h3 class="settings__title">Выберите гирлянду</h3>
       <ul class="settings__lights-list">
-        <li class="settings__lights-item settings__item"></li>
-        <li class="settings__lights-item settings__item"></li>
-        <li class="settings__lights-item settings__item"></li>
-        <li class="settings__lights-item settings__item"></li>
-        <li class="settings__lights-item settings__item"></li>
+        <li class="settings__lights-item settings__item" data-color="color"></li>
+        <li class="settings__lights-item settings__item" data-color="purple"></li>
+        <li class="settings__lights-item settings__item" data-color="white"></li>
+        <li class="settings__lights-item settings__item" data-color="yellow"></li>
+        <li class="settings__lights-item settings__item" data-color="blue"></li>
       </ul>
       <div class="settings__lights-control">
+        <input class="lights-onoff" type="checkbox" id="switcher" checked>
+        <label for="switcher">Выключить гирлянду</label>
       </div>
     </div>
   </section>`;
