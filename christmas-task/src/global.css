@@ -1245,3 +1245,21 @@ body {
   max-height: calc(100vh - 190px);
 }
 
+.tree__lights {
+  position: absolute;
+
+
+  top: 0;
+  left: 0;
+}
+
+.tree__lightrope {
+  display: flex;
+}
+
+.tree__bulb {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #FDD700;
+}
