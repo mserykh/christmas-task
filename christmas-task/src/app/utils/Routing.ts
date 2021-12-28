@@ -27,6 +27,13 @@ export const routing = () => {
       }
       target.classList.add("site-nav__link--active");
       treePage();
+      
+      const searchContainer = document.querySelector<HTMLElement>(".search");
+      if (searchContainer) {
+        if (searchContainer.hasChildNodes()) {
+          searchContainer.removeChild(searchContainer.firstChild as HTMLElement);
+        }
+      }
     }
   }
 };
