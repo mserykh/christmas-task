@@ -1,5 +1,7 @@
 export const setScene = (): void => {
   const settingsScenesList = document.querySelector<HTMLElement>(".settings__scene-list");
+  settingsScenesList?.children[0].classList.add("settings__item--active");
+
 
   const sceneOnClick = (e: Event): void => {
     if (settingsScenesList) {

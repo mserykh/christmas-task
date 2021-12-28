@@ -2,6 +2,7 @@ import { settingsLeftContainer } from "./SettingsLeftContainer";
 
 export const setTree = (): void => {
   const settingsTreeList = document.querySelector<HTMLElement>(".settings__tree-list");
+  settingsTreeList?.children[0].classList.add("settings__item--active");
 
   const sceneOnClick = (e: Event): void => {
     if (settingsTreeList !== null) {
