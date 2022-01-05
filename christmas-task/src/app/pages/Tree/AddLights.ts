@@ -30,6 +30,8 @@ export const addLights = (): void => {
   }
 
   const lightsOnClick = (e: Event): void => {
+    if (lightsList) lightsList.style.display = "flex";
+
     if (settingsLightsList) {
       Array.from(settingsLightsList.children).forEach(child => {
         if ((<HTMLElement>child).classList.contains("settings__item--active")) {
