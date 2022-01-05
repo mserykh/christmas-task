@@ -1307,8 +1307,8 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 7px;
-  height: 7px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   animation-iteration-count: infinite;
   animation-fill-mode: both;
@@ -1347,26 +1347,24 @@ body {
 }
 
 .bulb:nth-child(1n+1) {
-  animation-duration: 0.4s;
-  animation-delay: 1s;
+  animation-duration: 0.8s;
+  animation-delay: 0.5s;
 }
 
 .bulb:nth-child(2n+2) {
-  animation-duration: 1s;
+  animation-duration: 1.2s;
+  animation-delay: 1.5s;
 }
 
 .bulb:nth-child(3n+3) {
-  animation-duration: 1.4s;
-}
-
-.bulb:nth-child(odd) {
   animation-duration: 1.8s;
 }
+
 
 @keyframes purple {
   0%, 100% {
     background-color: #B87AFF;
-    box-shadow: 0px 0px 16px 3px #B87AFF, inset 0px 0px 6px -1px #FFFFFF;
+    box-shadow: 0px 0px 25px 6px #B87AFF, inset 0px 0px 6px -1px #FFFFFF;
   }
 
   50% {
@@ -1378,7 +1376,7 @@ body {
 @keyframes white {
   0%, 100% {
     background-color: #D6FCF7;
-    box-shadow: 0px 0px 16px 3px #D6FCF7, inset 0px 0px 6px -1px #FFFFFF;
+    box-shadow: 0px 0px 25px 6px #D6FCF7, inset 0px 0px 6px -1px #FFFFFF;
   }
 
   50% {
@@ -1390,7 +1388,7 @@ body {
 @keyframes yellow {
   0%, 100% {
     background-color: #FFEE06;
-    box-shadow: 0px 0px 16px 3px #FFEE06, inset 0px 0px 6px -1px #FFFFFF;
+    box-shadow: 0px 0px 25px 6px #FFEE06, inset 0px 0px 6px -1px #FFFFFF;
   }
 
   50% {
@@ -1402,7 +1400,7 @@ body {
 @keyframes blue {
   0%, 100% {
     background-color: #02ECFD;
-    box-shadow: 0px 0px 16px 3px #02ECFD, inset 0px 0px 6px -1px #FFFFFF;
+    box-shadow: 0px 0px 25px 4px #02ECFD, inset 0px 0px 6px -1px #FFFFFF;
   }
 
   50% {
