@@ -38,7 +38,7 @@ export const sliderRanges = (rangeSlider: HTMLElement): void => {
     const percent = ((currentValueRight - min) / (max - min)) * 100;
     outputRight.innerText = currentValueRight.toString();
     thumbRight.style.right = `${(100 - percent + 8 * 0.01 * percent)}%`;
-    range.style.right = `${(100 - percent)}%`;
+    range.style.right = `${(100 - percent - 8 * 0.01 * (100 - percent))}%`;
   }
   setRightValue();
   
