@@ -32,8 +32,12 @@ function onDropEvent(this: HTMLElement, e: DragEvent) {
     if (img) { 
       if (+qty > 0) {
         cloneElement(this, e, img);
+        console.log(e);
         qty = (+qty - 1).toString();
         (item .querySelector<HTMLElement>(".settings__toys-count") as HTMLElement).innerText = qty;
+      }
+      if (+qty === 0) {
+        item.style.opacity = "0.5";
       }
     }
   }

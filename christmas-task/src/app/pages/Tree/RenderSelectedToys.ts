@@ -21,8 +21,9 @@ function onDragStartEvent(e: DragEvent) {
     const qty = (<HTMLElement>item.querySelector<HTMLElement>(".settings__toys-count")).innerText;
     (<DataTransfer>e.dataTransfer).setData("num", num);
     (<DataTransfer>e.dataTransfer).setData("qty", qty);
-    if (+qty === 1) {
-      item.style.opacity = "0.5";
-    }
+  }
+
+  if ((<HTMLElement>e.target).classList.contains("settings__toys-list")) {
+    e.preventDefault();
   }
 }
