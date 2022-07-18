@@ -10,7 +10,7 @@ export const startPage: TemplateFunction = () => {
       <img src="../../assets/img/ball-2.png" alt="">
     </div>
   </div>
-  <h1 class="main__title title">Помоги бабушке нарядить ёлочку</h1>
-  <button class="main__start">Начать</button>
+  <h1 class="main__title title">Help your grandma to decorate a Xmas Tree</h1>
+  <button class="main__start">Decorate!</button>
 </div>`;
 };

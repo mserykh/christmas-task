@@ -11,7 +11,7 @@ import { TemplateFunction } from "../../utils/Types";
 
 export const reset = (): void => {
   const resetBtnContainer = document.querySelector(".filters__sorting") as HTMLElement;
-  const resetBtnComponent: TemplateFunction = () => `<button class="filters__reset">Сброс фильтров</button>`;
+  const resetBtnComponent: TemplateFunction = () => `<button class="filters__reset">Reset filters</button>`;
 
   render(resetBtnContainer, resetBtnComponent());
   addEventListeners();

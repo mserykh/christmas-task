@@ -5,7 +5,7 @@ import { TemplateFunction } from "../../utils/Types";
 export const ranges = (): void => {
   const rangesContainer = document.querySelector<HTMLElement>(".filters__ranges");
   const rangesComponent: TemplateFunction = () => `<fieldset class="filters__value filters__value--range">
-  <legend class="filters__name">Количество экземпляров:</legend>
+  <legend class="filters__name">Quantity: </legend>
   <div class="fieldset__inner">
     <div class="range-slider range-slider--qty">
       <div class="slider">
@@ -24,7 +24,7 @@ export const ranges = (): void => {
   </div>
   </fieldset>
   <fieldset class="filters__value filters__value--range">
-  <legend class="filters__name">Год приобретения:</legend>
+  <legend class="filters__name">Year of purchase: </legend>
   <div class="fieldset__inner">
     <div class="range-slider range-slider--year">
       <div class="slider">

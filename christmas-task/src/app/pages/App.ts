@@ -9,10 +9,10 @@ export const appTemplate: TemplateFunction = () => {
         </a>
         <ul class="site-nav">
           <li class="site-nav__item">
-            <a class="site-nav__link" id="toys-page">Игрушки</a>
+            <a class="site-nav__link" id="toys-page">Toys</a>
           </li>
           <li class="site-nav__item">
-            <a class="site-nav__link" id="tree-page">Ёлка</a>
+            <a class="site-nav__link" id="tree-page">Tree</a>
           </li>
         </ul>
       </nav>

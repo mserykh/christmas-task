@@ -30,10 +30,10 @@ export const selectedToysModal = (): void => {
     const selectedToysModalTemplate: TemplateFunction = () => `
     <div class="selected-modal">
       <div class="selected-modal__inner">
-        <h2 class="selected-modal__title">Отобранные игрушки</h2>
+        <h2 class="selected-modal__title">Selected toys</h2>
         <div class="selected-modal__wrapper">
           <p class="selected-modal__message-empty">
-            Пока нет отобранных игрушек
+            No selected toys
           </p>
         </div>
         <button class="selected-modal__close">X</button>

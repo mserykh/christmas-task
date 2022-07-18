@@ -8,7 +8,7 @@ import { TemplateFunction } from "../../utils/Types";
 
 export const search = (): void => {
   const searchContainer = document.querySelector<HTMLElement>(".search");
-  const searchInputComponent: TemplateFunction = ()  => `<input class="search__input" type="search" autofocus placeholder="Поиск игрушек" autocomplete="off">`;
+  const searchInputComponent: TemplateFunction = ()  => `<input class="search__input" type="search" autofocus placeholder="Search toys" autocomplete="off">`;
   if (searchContainer) {
     if (searchContainer.hasChildNodes()) {
       searchContainer.removeChild(searchContainer.firstChild as HTMLElement);

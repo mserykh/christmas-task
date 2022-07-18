@@ -5,7 +5,7 @@ export const settingsRightContainer = (): void => {
   const appContainer = document.querySelector<HTMLElement>(".container--tree");
   const settingsComponent: TemplateFunction = () => `<section class="settings settings--right">
     <div class="settings__toys">
-      <h3 class="settings__title">Игрушки</h3>
+      <h3 class="settings__title">Toys</h3>
       <ul class="settings__toys-list" draggable="true">
       </ul>
     </div>

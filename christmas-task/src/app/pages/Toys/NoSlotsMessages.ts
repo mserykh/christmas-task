@@ -8,7 +8,7 @@ export const noSlotsMessage = (): void => {
     const noSlotsMessageTemplate: TemplateFunction = () => `<div class="noslots-modal">
       <div class="noslots-modal__inner">
           <p class="no-slots">
-            Извините, все слоты заполнены
+          Sorry, no more free slots
           </p>
           <button class="noslots-modal__close">X</button>
       </div>

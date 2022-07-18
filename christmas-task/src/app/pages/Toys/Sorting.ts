@@ -11,11 +11,11 @@ import { IToy, TemplateFunction } from "../../utils/Types";
 export const sorting = () => {
   const sortingContainer = document.querySelector(".filters__sorting") as HTMLElement;
   const controlsComponent: TemplateFunction = () => `<select name="sorting" id="sorting" class="filters__select">
-  <option value="default_sorting" ${ stateSortingOption.option === 'default_sorting' ? 'selected' : ''}>По умолчанию</option>
-  <option value="name-asc_sorting" ${ stateSortingOption.option === 'name-asc_sorting' ? 'selected' : ''}>По названию от «А» до «Я»</option>
-  <option value="name-desc_sorting" ${ stateSortingOption.option === 'name-desc_sorting' ? 'selected' : ''}>По названию от «Я» до «А»</option>
-  <option value="year-asc_sorting" ${ stateSortingOption.option === 'year-asc_sorting' ? 'selected' : ''}>По году по возрастанию</option>
-  <option value="year-desc_sorting" ${ stateSortingOption.option === 'year-desc_sorting' ? 'selected' : ''}>По году по убыванию</option>
+  <option value="default_sorting" ${ stateSortingOption.option === 'default_sorting' ? 'selected' : ''}>By default</option>
+  <option value="name-asc_sorting" ${ stateSortingOption.option === 'name-asc_sorting' ? 'selected' : ''}>By name from "A" to "Z"</option>
+  <option value="name-desc_sorting" ${ stateSortingOption.option === 'name-desc_sorting' ? 'selected' : ''}>By name from "Z" to "A"</option>
+  <option value="year-asc_sorting" ${ stateSortingOption.option === 'year-asc_sorting' ? 'selected' : ''}>By year ascending</option>
+  <option value="year-desc_sorting" ${ stateSortingOption.option === 'year-desc_sorting' ? 'selected' : ''}>By year descending</option>
 </select>`;
 
   render(sortingContainer, controlsComponent());

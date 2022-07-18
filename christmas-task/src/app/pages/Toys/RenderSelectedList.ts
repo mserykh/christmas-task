@@ -10,7 +10,7 @@ export const renderSelectedList = (): void => {
     if (stateSelectedList.length === 0) {
       modalInner.innerHTML = ``;
       const emptyMessage: TemplateFunction = () => `<p class="selected-modal__message-empty">
-          Пока нет отобранных игрушек
+          You have no favourites
       </p>`;
       render(modalInner, emptyMessage());
     }
