@@ -1,4 +1,4 @@
-# Christmass tree task
+# Xmas tree task
 Decorate a Xmas tree, get a Xmas mood!
 
 ## Description
