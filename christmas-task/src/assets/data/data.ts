@@ -273,7 +273,7 @@ const data: IToy[] = [
   },
   {
     num: '28',
-    name: 'Wine red sphere with a pattern',
+    name: 'Wine red ball with a pattern',
     count: '10',
     year: '2010',
     shape: 'sphere',
